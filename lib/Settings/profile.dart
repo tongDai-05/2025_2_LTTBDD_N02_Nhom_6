@@ -1,11 +1,15 @@
-import 'package:bai_tap_lon_cuoi_ki/languages/app_localizations.dart';
+import 'package:bai_tap_lon_cuoi_ki/Languages/app_localizations.dart';
 import 'package:flutter/material.dart';
+
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: TrangProfile(),
-  ));
+  runApp(
+    MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: TrangProfile(),
+    ),
+  );
 }
+
 class TrangProfile extends StatelessWidget {
   TrangProfile({super.key});
   List avt = ['imgs/avt1.jpg', 'imgs/avt2.jpg'];
@@ -18,7 +22,9 @@ class TrangProfile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
-        title: Text(l10n?.developersTitle ?? "Developers"),
+        title: Text(
+          l10n?.developersTitle ?? "Developers",
+        ),
         titleTextStyle: const TextStyle(
           fontSize: 24,
           color: Colors.white,
@@ -35,7 +41,9 @@ class TrangProfile extends StatelessWidget {
             ),
             elevation: 4,
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
+              borderRadius: BorderRadius.circular(
+                16,
+              ),
             ),
             child: ListTile(
               leading: GestureDetector(
@@ -43,15 +51,18 @@ class TrangProfile extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (_) => FullScreenImage(
-                        imagePath: avt[index],
-                      ),
+                      builder: (_) =>
+                          FullScreenImage(
+                            imagePath: avt[index],
+                          ),
                     ),
                   );
                 },
                 child: CircleAvatar(
                   radius: 28,
-                  backgroundImage: AssetImage(avt[index]),
+                  backgroundImage: AssetImage(
+                    avt[index],
+                  ),
                 ),
               ),
               title: Text(
@@ -62,9 +73,13 @@ class TrangProfile extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                l10n?.studentIdLabel(msv[index]) ??
+                l10n?.studentIdLabel(
+                      msv[index],
+                    ) ??
                     "MSV: ${msv[index]}",
-                style: const TextStyle(fontSize: 16),
+                style: const TextStyle(
+                  fontSize: 16,
+                ),
               ),
             ),
           );
@@ -73,9 +88,13 @@ class TrangProfile extends StatelessWidget {
     );
   }
 }
+
 class FullScreenImage extends StatelessWidget {
   final String imagePath;
-  const FullScreenImage({super.key, required this.imagePath});
+  const FullScreenImage({
+    super.key,
+    required this.imagePath,
+  });
   @override
   Widget build(BuildContext context) {
     return Scaffold(

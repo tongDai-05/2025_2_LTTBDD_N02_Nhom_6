@@ -1,3 +1,3 @@
-arb-dir: lib/languages
+arb-dir: lib/Languages
 template-arb-file: app_en.arb
 output-class: AppLocalizations

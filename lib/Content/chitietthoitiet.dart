@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bai_tap_lon_cuoi_ki/languages/app_localizations.dart';
+import 'package:bai_tap_lon_cuoi_ki/Languages/app_localizations.dart';
 import 'package:bai_tap_lon_cuoi_ki/Settings/Selection_languague.dart';
 import 'package:intl/intl.dart';
 
