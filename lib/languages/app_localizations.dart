@@ -170,6 +170,12 @@ abstract class AppLocalizations {
   /// **'Language'**
   String get settinglag;
 
+  /// No description provided for @about.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get about;
+
   /// No description provided for @detailTitle.
   ///
   /// In en, this message translates to:

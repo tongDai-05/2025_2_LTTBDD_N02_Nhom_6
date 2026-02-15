@@ -1,11 +1,9 @@
-import 'package:bai_tap_lon_cuoi_ki/Content/chitietthoitiet.dart';
 import 'package:flutter/material.dart';
-import 'package:bai_tap_lon_cuoi_ki/Settings/Selection_languague.dart';
 import 'package:bai_tap_lon_cuoi_ki/Languages/app_localizations.dart';
 
-void main() {
-  runApp(MaterialApp(home: MyApp()));
-}
+import '../City/city_management.dart';
+import '../Content/chitietthoitiet.dart';
+import '../data/weather_data.dart';
 
 class ManHinhChinh extends StatefulWidget {
   final Locale locale;
@@ -24,23 +22,49 @@ class ManHinhChinh extends StatefulWidget {
 
 class _ManHinhChinhState
     extends State<ManHinhChinh> {
-  List ds = ['Hà Nội', 'TP.HCM', 'Đà Nẵng'];
-  List dsnhietdo = ['32°C', '20°C', '24°C'];
-  List dsicon = [
-    Icons.wb_sunny,
-    Icons.thunderstorm,
-    Icons.cloud,
-  ];
-  List<WeatherType> dsWeather = [
-    WeatherType.sunny,
-    WeatherType.stormWarning,
-    WeatherType.cloudy,
-  ];
+  late List<CityWeather> _cities;
+  int _selectedCityIndex = 0;
 
-  String keyword = "";
+  @override
+  void initState() {
+    super.initState();
+    _cities = buildDefaultCities();
+  }
+
+  Future<void> _openCityManagement() async {
+    final result = await Navigator.of(context)
+        .push<CityManagementResult>(
+          MaterialPageRoute(
+            builder: (_) => CityManagementScreen(
+              initialCities: _cities,
+              initialSelectedIndex:
+                  _selectedCityIndex,
+            ),
+          ),
+        );
+
+    if (result == null) return;
+    setState(() {
+      _cities = result.cities;
+      _selectedCityIndex = result.selectedIndex;
+    });
+  }
+
+  void _openWeatherDetail(CityWeather city) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) =>
+            ChiTietThoiTiet(city: city),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+
+    final city = _cities[_selectedCityIndex];
 
     return Scaffold(
       appBar: AppBar(
@@ -63,134 +87,204 @@ class _ManHinhChinhState
             ),
           ],
         ),
-        // actions: [
-        // IconButton(
-        //   onPressed: () {
-        //     Navigator.push(
-        //       context,
-        //       MaterialPageRoute(
-        //         builder: (context) =>
-        //             SettingsPage(
-        //               currentLocale:
-        //                   widget.locale,
-        //               onLocaleChanged: widget
-        //                   .onLocaleChanged,
-        //             ),
-        //       ),
-        //     );
-        //   },
-        //   icon: Icon(
-        //     Icons.settings,
-        //     color: Colors.white,
-        //   ),
-        // ),
-        // IconButton(
-        //   onPressed: () {
-        //     Navigator.push(
-        //       context,
-        //       MaterialPageRoute(
-        //         builder: (context) =>
-        //             TrangProfile(),
-        //       ),
-        //     );
-        //   },
-        //   icon: Icon(
-        //     Icons.person,
-        //     color: Colors.white,
-        //   ),
-        // ),
-        // ],
+        actions: [
+          IconButton(
+            onPressed: _openCityManagement,
+            icon: const Icon(
+              Icons.location_city_outlined,
+            ),
+            color: Colors.white,
+            tooltip: 'Quản lý thành phố',
+          ),
+        ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(12),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: l10n.searchCityHint,
-                prefixIcon: const Icon(
-                  Icons.search,
-                ),
-                border: OutlineInputBorder(
-                  borderRadius:
-                      BorderRadius.circular(12),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(12),
+          child: Column(
+            crossAxisAlignment:
+                CrossAxisAlignment.stretch,
+            children: [
+              GestureDetector(
+                onTap: () =>
+                    _openWeatherDetail(city),
+                child: Card(
+                  elevation: 4,
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(20),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(
+                      16,
+                    ),
+                    child: Row(
+                      children: [
+                        Icon(
+                          city.conditionIcon,
+                          size: 56,
+                          color: Colors.orange,
+                        ),
+                        const SizedBox(width: 16),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment:
+                                CrossAxisAlignment
+                                    .start,
+                            children: [
+                              Text(
+                                city.cityName,
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight:
+                                      FontWeight
+                                          .bold,
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 6,
+                              ),
+                              Text(
+                                '${city.tempC}°C • ${conditionLabel(city.condition)}',
+                                style:
+                                    const TextStyle(
+                                      fontSize:
+                                          16,
+                                    ),
+                              ),
+                              const SizedBox(
+                                height: 6,
+                              ),
+                              const Text(
+                                'Nhấn để xem chi tiết',
+                                style: TextStyle(
+                                  color:
+                                      Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ),
-              onChanged: (value) {
-                setState(() {
-                  keyword = value;
-                });
-              },
-            ),
-          ),
-          Text(l10n.currentCityCount(ds.length)),
-          Expanded(
-            child: ListView.builder(
-              itemCount: ds.length,
-              itemBuilder: (context, index) {
-                if (!ds[index]
-                    .toLowerCase()
-                    .contains(
-                      keyword.toLowerCase(),
-                    )) {
-                  return const SizedBox();
-                }
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            ChiTietThoiTiet(
-                              tenTP: ds[index],
-                              nhietDo:
-                                  dsnhietdo[index],
-                              weatherType:
-                                  dsWeather[index],
+              const SizedBox(height: 16),
+              const Text(
+                'Dự báo theo giờ',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              SizedBox(
+                height: 130,
+                child: ListView.separated(
+                  scrollDirection:
+                      Axis.horizontal,
+                  itemCount: city.hourly.length,
+                  separatorBuilder: (_, __) =>
+                      const SizedBox(width: 10),
+                  itemBuilder: (context, index) {
+                    final item =
+                        city.hourly[index];
+                    return Container(
+                      width: 96,
+                      padding:
+                          const EdgeInsets.symmetric(
+                            vertical: 12,
+                          ),
+                      decoration: BoxDecoration(
+                        color: Colors.blue[50],
+                        borderRadius:
+                            BorderRadius.circular(
+                              18,
                             ),
+                      ),
+                      child: Column(
+                        mainAxisAlignment:
+                            MainAxisAlignment
+                                .center,
+                        children: [
+                          Text(
+                            item.timeLabel,
+                            style:
+                                const TextStyle(
+                                  fontWeight:
+                                      FontWeight
+                                          .bold,
+                                ),
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Icon(
+                            item.icon,
+                            color: Colors.orange,
+                            size: 32,
+                          ),
+                          const SizedBox(
+                            height: 8,
+                          ),
+                          Text('${item.tempC}°C'),
+                        ],
                       ),
                     );
                   },
-                  child: Card(
+                ),
+              ),
+              const SizedBox(height: 18),
+              const Text(
+                'Dự báo 7 ngày',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              ListView.builder(
+                shrinkWrap: true,
+                physics:
+                    const NeverScrollableScrollPhysics(),
+                itemCount: city.daily7.length,
+                itemBuilder: (context, index) {
+                  final item = city.daily7[index];
+                  return Card(
                     margin:
                         const EdgeInsets.symmetric(
-                          horizontal: 12,
-                          vertical: 8,
+                          vertical: 6,
                         ),
-                    elevation: 4,
+                    elevation: 2,
                     shape: RoundedRectangleBorder(
                       borderRadius:
                           BorderRadius.circular(
-                            20,
+                            16,
                           ),
                     ),
                     child: ListTile(
                       leading: Icon(
-                        dsicon[index],
-                        size: 32,
+                        item.icon,
                         color: Colors.orange,
                       ),
                       title: Text(
-                        ds[index],
+                        item.dayLabel,
                         style: const TextStyle(
-                          fontSize: 20,
                           fontWeight:
                               FontWeight.bold,
                         ),
                       ),
-                      subtitle: Text(
-                        dsnhietdo[index],
-                        style: const TextStyle(
-                          fontSize: 16,
-                        ),
+                      trailing: Text(
+                        '${item.tempC}°C',
                       ),
                     ),
-                  ),
-                );
-              },
-            ),
+                  );
+                },
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

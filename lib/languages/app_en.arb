@@ -11,6 +11,7 @@
     "home": "Home",
     "viewProfile": "View Profile",
     "settinglag": "Language",
+    "about": "About",
     "@currentCityCount": {
         "placeholders": {
             "count": {

@@ -47,6 +47,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settinglag => 'Language';
 
   @override
+  String get about => 'About';
+
+  @override
   String detailTitle(String city) {
     return 'Details $city';
   }

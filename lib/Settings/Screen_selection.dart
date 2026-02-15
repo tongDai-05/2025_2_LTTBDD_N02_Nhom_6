@@ -1,5 +1,6 @@
 import 'package:bai_tap_lon_cuoi_ki/Settings/profile.dart';
 import 'package:bai_tap_lon_cuoi_ki/Settings/Selection_languague.dart';
+import 'package:bai_tap_lon_cuoi_ki/Settings/about.dart';
 import 'package:bai_tap_lon_cuoi_ki/Languages/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -107,6 +108,41 @@ class SettingsIndexPage extends StatelessWidget {
                 title: Text(
                   l10n.settinglag,
                   style: const TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) =>
+                      const AboutPage(),
+                ),
+              );
+            },
+            child: Card(
+              margin: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 8,
+              ),
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.circular(20),
+              ),
+              child: const ListTile(
+                leading: Icon(
+                  Icons.info_outline,
+                  size: 32,
+                  color: Colors.orange,
+                ),
+                title: Text(
+                  'About',
+                  style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),

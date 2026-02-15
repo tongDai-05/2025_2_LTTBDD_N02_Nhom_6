@@ -47,6 +47,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get settinglag => 'Ngôn ngữ';
 
   @override
+  String get about => 'Giới thiệu';
+
+  @override
   String detailTitle(String city) {
     return 'Chi tiết $city';
   }
