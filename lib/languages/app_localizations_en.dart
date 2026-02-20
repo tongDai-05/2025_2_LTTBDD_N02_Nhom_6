@@ -162,6 +162,31 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String dateOfBirthLabel(String date) {
+    return 'Date of birth: $date';
+  }
+
+  @override
+  String classLabel(String name) {
+    return 'Class: $name';
+  }
+
+  @override
+  String hobbiesLabel(String hobbies) {
+    return 'Hobbies: $hobbies';
+  }
+
+  @override
+  String get developerHobbies1 => 'Programming, reading, football, travel';
+
+  @override
+  String get developerHobbies2 =>
+      'Programming, listening to music, badminton, football';
+
+  @override
+  String get close => 'Close';
+
+  @override
   String get weatherSunny => 'Sunny';
 
   @override

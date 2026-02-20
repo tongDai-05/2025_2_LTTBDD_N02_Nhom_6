@@ -49,7 +49,7 @@ class ChiTietThoiTiet extends StatelessWidget {
             Text(
               l10n.detailPageTitle,
               style: const TextStyle(
-                fontSize: 23,
+                fontSize: 24,
                 fontWeight: FontWeight.normal,
               ),
             ),

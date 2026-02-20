@@ -65,9 +65,36 @@
     "uvIndexLabel": "UV Index",
     "feelsLikeLabel": "Feels like",
     "studentIdLabel": "Student ID: {id}",
+    "dateOfBirthLabel": "Date of birth: {date}",
+    "classLabel": "Class: {name}",
+    "hobbiesLabel": "Hobbies: {hobbies}",
+    "developerHobbies1": "Programming, reading, football, travel",
+    "developerHobbies2": "Programming, listening to music, badminton, football",
+    "close": "Close",
     "@studentIdLabel": {
         "placeholders": {
             "id": {
+                "type": "String"
+            }
+        }
+    },
+    "@dateOfBirthLabel": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "@classLabel": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "@hobbiesLabel": {
+        "placeholders": {
+            "hobbies": {
                 "type": "String"
             }
         }

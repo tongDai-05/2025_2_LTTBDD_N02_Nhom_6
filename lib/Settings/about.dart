@@ -19,7 +19,7 @@ class AboutPage extends StatelessWidget {
             Text(
               l10n.about,
               style: const TextStyle(
-                fontSize: 23,
+                fontSize: 24,
                 fontWeight: FontWeight.normal,
               ),
             ),

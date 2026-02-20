@@ -65,9 +65,36 @@
     "uvIndexLabel": "UV Index",
     "feelsLikeLabel": "Nhiệt độ cảm nhận",
     "studentIdLabel": "MSV: {id}",
+    "dateOfBirthLabel": "Ngày sinh: {date}",
+    "classLabel": "Lớp: {name}",
+    "hobbiesLabel": "Sở thích: {hobbies}",
+    "developerHobbies1": "Lập trình, đọc sách, bóng đá, du lịch",
+    "developerHobbies2": "Lập trình, nghe nhạc, cầu lông, bóng đá",
+    "close": "Đóng",
     "@studentIdLabel": {
         "placeholders": {
             "id": {
+                "type": "String"
+            }
+        }
+    },
+    "@dateOfBirthLabel": {
+        "placeholders": {
+            "date": {
+                "type": "String"
+            }
+        }
+    },
+    "@classLabel": {
+        "placeholders": {
+            "name": {
+                "type": "String"
+            }
+        }
+    },
+    "@hobbiesLabel": {
+        "placeholders": {
+            "hobbies": {
                 "type": "String"
             }
         }

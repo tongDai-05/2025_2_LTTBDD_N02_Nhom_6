@@ -368,6 +368,42 @@ abstract class AppLocalizations {
   /// **'Student ID: {id}'**
   String studentIdLabel(String id);
 
+  /// No description provided for @dateOfBirthLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth: {date}'**
+  String dateOfBirthLabel(String date);
+
+  /// No description provided for @classLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Class: {name}'**
+  String classLabel(String name);
+
+  /// No description provided for @hobbiesLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Hobbies: {hobbies}'**
+  String hobbiesLabel(String hobbies);
+
+  /// No description provided for @developerHobbies1.
+  ///
+  /// In en, this message translates to:
+  /// **'Programming, reading, football, travel'**
+  String get developerHobbies1;
+
+  /// No description provided for @developerHobbies2.
+  ///
+  /// In en, this message translates to:
+  /// **'Programming, listening to music, badminton, football'**
+  String get developerHobbies2;
+
+  /// No description provided for @close.
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
   /// No description provided for @weatherSunny.
   ///
   /// In en, this message translates to:

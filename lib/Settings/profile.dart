@@ -5,6 +5,10 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates:
+          AppLocalizations.localizationsDelegates,
+      supportedLocales:
+          AppLocalizations.supportedLocales,
       home: TrangProfile(),
     ),
   );
@@ -26,20 +30,30 @@ class TrangProfile extends StatelessWidget {
   ];
   final List<String> ngaySinh = [
     '01/01/2005',
-    '02/02/2005',
+    '01/06/2005',
   ];
   final List<String> lop = [
-    'LTTBDD N02',
-    'LTTBDD N02',
+    'K17-CNTT_1',
+    'K17-CNTT_1',
   ];
-  final List<String> soThich = [
-    'Lập trình, đọc sách, bóng đá',
-    'Lập trình, nghe nhạc, du lịch',
-  ];
+
+  String _developerHobbies(
+    AppLocalizations l10n,
+    int index,
+  ) {
+    switch (index) {
+      case 0:
+        return l10n.developerHobbies1;
+      case 1:
+        return l10n.developerHobbies2;
+      default:
+        return '';
+    }
+  }
 
   void _showMemberModal(
     BuildContext context,
-    AppLocalizations? l10n,
+    AppLocalizations l10n,
     int index,
   ) {
     showDialog(
@@ -85,20 +99,30 @@ class TrangProfile extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        l10n?.studentIdLabel(
-                              msv[index],
-                            ) ??
-                            'MSV: ${msv[index]}',
+                        l10n.studentIdLabel(
+                          msv[index],
+                        ),
                       ),
                       const SizedBox(height: 6),
                       Text(
-                        'Ngày sinh: ${ngaySinh[index]}',
+                        l10n.dateOfBirthLabel(
+                          ngaySinh[index],
+                        ),
                       ),
                       const SizedBox(height: 6),
-                      Text('Lớp: ${lop[index]}'),
+                      Text(
+                        l10n.classLabel(
+                          lop[index],
+                        ),
+                      ),
                       const SizedBox(height: 6),
                       Text(
-                        'Sở thích: ${soThich[index]}',
+                        l10n.hobbiesLabel(
+                          _developerHobbies(
+                            l10n,
+                            index,
+                          ),
+                        ),
                       ),
                       const SizedBox(height: 14),
                       Align(
@@ -109,9 +133,7 @@ class TrangProfile extends StatelessWidget {
                               Navigator.pop(
                                 context,
                               ),
-                          child: const Text(
-                            'Đóng',
-                          ),
+                          child: Text(l10n.close),
                         ),
                       ),
                     ],
@@ -127,14 +149,12 @@ class TrangProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
-        title: Text(
-          l10n?.developersTitle ?? "Developers",
-        ),
+        title: Text(l10n.developersTitle),
         titleTextStyle: const TextStyle(
           fontSize: 24,
           color: Colors.white,
@@ -170,10 +190,7 @@ class TrangProfile extends StatelessWidget {
                 ),
               ),
               subtitle: Text(
-                l10n?.studentIdLabel(
-                      msv[index],
-                    ) ??
-                    "MSV: ${msv[index]}",
+                l10n.studentIdLabel(msv[index]),
                 style: const TextStyle(
                   fontSize: 16,
                 ),

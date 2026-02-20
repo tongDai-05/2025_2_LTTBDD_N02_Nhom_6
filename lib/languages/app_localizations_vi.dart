@@ -162,6 +162,30 @@ class AppLocalizationsVi extends AppLocalizations {
   }
 
   @override
+  String dateOfBirthLabel(String date) {
+    return 'Ngày sinh: $date';
+  }
+
+  @override
+  String classLabel(String name) {
+    return 'Lớp: $name';
+  }
+
+  @override
+  String hobbiesLabel(String hobbies) {
+    return 'Sở thích: $hobbies';
+  }
+
+  @override
+  String get developerHobbies1 => 'Lập trình, đọc sách, bóng đá, du lịch';
+
+  @override
+  String get developerHobbies2 => 'Lập trình, nghe nhạc, cầu lông, bóng đá';
+
+  @override
+  String get close => 'Đóng';
+
+  @override
   String get weatherSunny => 'Có nắng';
 
   @override
