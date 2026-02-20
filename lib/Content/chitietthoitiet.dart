@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../data/weather_data.dart';
+import '../Languages/app_localizations.dart';
+import '../Data/weather_data.dart';
 
 class ChiTietThoiTiet extends StatelessWidget {
   final CityWeather city;
@@ -35,6 +36,7 @@ class ChiTietThoiTiet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final metrics = city.metrics;
 
     return Scaffold(
@@ -96,7 +98,7 @@ class ChiTietThoiTiet extends StatelessWidget {
                               height: 6,
                             ),
                             Text(
-                              '${city.tempC}°C • ${conditionLabel(city.condition)}',
+                              '${city.tempC}°C • ${conditionLabel(l10n, city.condition)}',
                             ),
                           ],
                         ),

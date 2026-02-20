@@ -12,6 +12,10 @@
     "viewProfile": "View Profile",
     "settinglag": "Language",
     "about": "About",
+    "cityManager": "City Manager",
+    "detailContent": "Tap to view details",
+    "hourlyForecast": "Hourly Forecast",
+    "sevenDayForecast": "7-Day Forecast",
     "@currentCityCount": {
         "placeholders": {
             "count": {
@@ -35,8 +39,6 @@
             }
         }
     },
-    "hourlyForecast": "Hourly forecast",
-    "sevenDayForecast": "7-day forecast",
     "developersTitle": "Development team",
     "studentIdLabel": "Student ID: {id}",
     "@studentIdLabel": {
@@ -47,6 +49,7 @@
         }
     },
     "weatherSunny": "Sunny",
+    "weatherRainy": "Rainy",
     "weatherCloudy": "Cloudy",
     "weatherStormWarning": "Rainy, thunderstorm warning"
 }

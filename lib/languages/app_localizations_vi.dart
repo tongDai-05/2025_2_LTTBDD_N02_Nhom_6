@@ -50,6 +50,18 @@ class AppLocalizationsVi extends AppLocalizations {
   String get about => 'Giới thiệu';
 
   @override
+  String get cityManager => 'Quản lý thành phố';
+
+  @override
+  String get detailContent => 'Nhấn để xem chi tiết';
+
+  @override
+  String get hourlyForecast => 'Dự báo theo giờ';
+
+  @override
+  String get sevenDayForecast => 'Dự báo 7 ngày';
+
+  @override
   String detailTitle(String city) {
     return 'Chi tiết $city';
   }
@@ -58,12 +70,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String todayWithDate(String date) {
     return 'Hôm nay, $date';
   }
-
-  @override
-  String get hourlyForecast => 'Dự báo theo giờ';
-
-  @override
-  String get sevenDayForecast => 'Dự báo 7 ngày';
 
   @override
   String get developersTitle => 'Thành viên phát triển';
@@ -75,6 +81,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get weatherSunny => 'Có nắng';
+
+  @override
+  String get weatherRainy => 'Có mưa';
 
   @override
   String get weatherCloudy => 'Nhiều mây';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data/weather_data.dart';
+import '../Data/weather_data.dart';
 
 class CityManagementResult {
   final List<CityWeather> cities;

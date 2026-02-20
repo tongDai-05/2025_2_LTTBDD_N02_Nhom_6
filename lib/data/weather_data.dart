@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../Languages/app_localizations.dart';
+
 enum WeatherCondition { sunny, rainy, cloudy }
 
 class HourlyForecast {
@@ -63,15 +65,16 @@ class CityWeather {
 }
 
 String conditionLabel(
+  AppLocalizations l10n,
   WeatherCondition condition,
 ) {
   switch (condition) {
     case WeatherCondition.sunny:
-      return 'Sunny';
+      return l10n.weatherSunny;
     case WeatherCondition.rainy:
-      return 'Rainy';
+      return l10n.weatherRainy;
     case WeatherCondition.cloudy:
-      return 'Cloudy';
+      return l10n.weatherCloudy;
   }
 }
 

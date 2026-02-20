@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:bai_tap_lon_cuoi_ki/Languages/app_localizations.dart';
+import 'package:intl/intl.dart' as intl;
 
 import '../City/city_management.dart';
 import '../Content/chitietthoitiet.dart';
-import '../data/weather_data.dart';
+import '../Data/weather_data.dart';
 
 class ManHinhChinh extends StatefulWidget {
   final Locale locale;
@@ -94,7 +95,7 @@ class _ManHinhChinhState
               Icons.location_city_outlined,
             ),
             color: Colors.white,
-            tooltip: 'Quản lý thành phố',
+            tooltip: l10n.cityManager,
           ),
         ],
       ),
@@ -145,7 +146,7 @@ class _ManHinhChinhState
                                 height: 6,
                               ),
                               Text(
-                                '${city.tempC}°C • ${conditionLabel(city.condition)}',
+                                '${city.tempC}°C • ${conditionLabel(l10n, city.condition)}',
                                 style:
                                     const TextStyle(
                                       fontSize:
@@ -155,12 +156,13 @@ class _ManHinhChinhState
                               const SizedBox(
                                 height: 6,
                               ),
-                              const Text(
-                                'Nhấn để xem chi tiết',
-                                style: TextStyle(
-                                  color:
-                                      Colors.grey,
-                                ),
+                              Text(
+                                l10n.detailContent,
+                                style:
+                                    const TextStyle(
+                                      color: Colors
+                                          .grey,
+                                    ),
                               ),
                             ],
                           ),
@@ -171,8 +173,8 @@ class _ManHinhChinhState
                 ),
               ),
               const SizedBox(height: 16),
-              const Text(
-                'Dự báo theo giờ',
+              Text(
+                l10n.hourlyForecast,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -236,8 +238,8 @@ class _ManHinhChinhState
                 ),
               ),
               const SizedBox(height: 18),
-              const Text(
-                'Dự báo 7 ngày',
+              Text(
+                l10n.sevenDayForecast,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
@@ -251,6 +253,9 @@ class _ManHinhChinhState
                 itemCount: city.daily7.length,
                 itemBuilder: (context, index) {
                   final item = city.daily7[index];
+                  final dayLabel = intl.DateFormat.E(l10n.localeName).format(
+                    DateTime.now().add(Duration(days: index)),
+                  );
                   return Card(
                     margin:
                         const EdgeInsets.symmetric(
@@ -269,7 +274,7 @@ class _ManHinhChinhState
                         color: Colors.orange,
                       ),
                       title: Text(
-                        item.dayLabel,
+                        dayLabel,
                         style: const TextStyle(
                           fontWeight:
                               FontWeight.bold,

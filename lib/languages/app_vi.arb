@@ -12,6 +12,10 @@
     "viewProfile": "Xem thông tin",
     "settinglag": "Ngôn ngữ",
     "about": "Giới thiệu",
+    "cityManager": "Quản lý thành phố",
+    "detailContent": "Nhấn để xem chi tiết",
+    "hourlyForecast": "Dự báo theo giờ",
+    "sevenDayForecast": "Dự báo 7 ngày",
     "@currentCityCount": {
         "placeholders": {
             "count": {
@@ -35,8 +39,6 @@
             }
         }
     },
-    "hourlyForecast": "Dự báo theo giờ",
-    "sevenDayForecast": "Dự báo 7 ngày",
     "developersTitle": "Thành viên phát triển",
     "studentIdLabel": "MSV: {id}",
     "@studentIdLabel": {
@@ -47,6 +49,7 @@
         }
     },
     "weatherSunny": "Có nắng",
+    "weatherRainy": "Có mưa",
     "weatherCloudy": "Nhiều mây",
     "weatherStormWarning": "Có mưa, Cảnh báo sấm sét"
 }

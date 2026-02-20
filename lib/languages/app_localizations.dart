@@ -176,6 +176,30 @@ abstract class AppLocalizations {
   /// **'About'**
   String get about;
 
+  /// No description provided for @cityManager.
+  ///
+  /// In en, this message translates to:
+  /// **'City Manager'**
+  String get cityManager;
+
+  /// No description provided for @detailContent.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to view details'**
+  String get detailContent;
+
+  /// No description provided for @hourlyForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'Hourly Forecast'**
+  String get hourlyForecast;
+
+  /// No description provided for @sevenDayForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'7-Day Forecast'**
+  String get sevenDayForecast;
+
   /// No description provided for @detailTitle.
   ///
   /// In en, this message translates to:
@@ -187,18 +211,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Today, {date}'**
   String todayWithDate(String date);
-
-  /// No description provided for @hourlyForecast.
-  ///
-  /// In en, this message translates to:
-  /// **'Hourly forecast'**
-  String get hourlyForecast;
-
-  /// No description provided for @sevenDayForecast.
-  ///
-  /// In en, this message translates to:
-  /// **'7-day forecast'**
-  String get sevenDayForecast;
 
   /// No description provided for @developersTitle.
   ///
@@ -217,6 +229,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Sunny'**
   String get weatherSunny;
+
+  /// No description provided for @weatherRainy.
+  ///
+  /// In en, this message translates to:
+  /// **'Rainy'**
+  String get weatherRainy;
 
   /// No description provided for @weatherCloudy.
   ///

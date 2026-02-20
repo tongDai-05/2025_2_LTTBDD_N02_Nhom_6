@@ -50,6 +50,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get about => 'About';
 
   @override
+  String get cityManager => 'City Manager';
+
+  @override
+  String get detailContent => 'Tap to view details';
+
+  @override
+  String get hourlyForecast => 'Hourly Forecast';
+
+  @override
+  String get sevenDayForecast => '7-Day Forecast';
+
+  @override
   String detailTitle(String city) {
     return 'Details $city';
   }
@@ -58,12 +70,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String todayWithDate(String date) {
     return 'Today, $date';
   }
-
-  @override
-  String get hourlyForecast => 'Hourly forecast';
-
-  @override
-  String get sevenDayForecast => '7-day forecast';
 
   @override
   String get developersTitle => 'Development team';
@@ -75,6 +81,9 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get weatherSunny => 'Sunny';
+
+  @override
+  String get weatherRainy => 'Rainy';
 
   @override
   String get weatherCloudy => 'Cloudy';
