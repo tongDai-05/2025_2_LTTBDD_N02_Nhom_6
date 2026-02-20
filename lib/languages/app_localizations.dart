@@ -218,6 +218,78 @@ abstract class AppLocalizations {
   /// **'Development team'**
   String get developersTitle;
 
+  /// No description provided for @aboutAppHeadline.
+  ///
+  /// In en, this message translates to:
+  /// **'Weather App (Demo) — A course project weather app'**
+  String get aboutAppHeadline;
+
+  /// No description provided for @aboutIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'This app is built to simulate a modern mobile weather-viewing experience, while demonstrating core Flutter techniques such as multi-screen navigation (Navigator), state management with setState, building UI with Material Design, and organizing code by feature modules.'**
+  String get aboutIntro;
+
+  /// No description provided for @aboutHighlightsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Highlights'**
+  String get aboutHighlightsTitle;
+
+  /// No description provided for @aboutHighlightHome.
+  ///
+  /// In en, this message translates to:
+  /// **'• Home Screen: shows the current city, temperature, weather condition, and an illustrative icon.'**
+  String get aboutHighlightHome;
+
+  /// No description provided for @aboutHighlightForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'• Forecast: includes an hourly forecast (horizontal list) and a 7-day forecast (vertical list) to help users see the trend.'**
+  String get aboutHighlightForecast;
+
+  /// No description provided for @aboutHighlightCityManagement.
+  ///
+  /// In en, this message translates to:
+  /// **'• City Management: manages a sample city list (can add a city via a “fake form”), and selects a city to update what’s shown on Home.'**
+  String get aboutHighlightCityManagement;
+
+  /// No description provided for @aboutHighlightWeatherDetail.
+  ///
+  /// In en, this message translates to:
+  /// **'• Weather Detail: shows detailed metrics such as humidity, wind speed, pressure, UV Index, and feels-like temperature.'**
+  String get aboutHighlightWeatherDetail;
+
+  /// No description provided for @aboutHighlightSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'• Settings: supports language switching and viewing member info in a modal (split layout: photo on the left, details on the right).'**
+  String get aboutHighlightSettings;
+
+  /// No description provided for @aboutDataScopeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Data & scope'**
+  String get aboutDataScopeTitle;
+
+  /// No description provided for @aboutDataScope.
+  ///
+  /// In en, this message translates to:
+  /// **'Within the scope of this assignment, weather data is hard-coded (a fixed list in Dart) to focus on UI, navigation flow, and user experience. The data model is separated so it can later be replaced with a real API (OpenWeather, WeatherAPI, …) without major UI changes.'**
+  String get aboutDataScope;
+
+  /// No description provided for @aboutFutureTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Future work'**
+  String get aboutFutureTitle;
+
+  /// No description provided for @aboutFutureBullet1.
+  ///
+  /// In en, this message translates to:
+  /// **'• Integrate a real-time weather API and cache data.'**
+  String get aboutFutureBullet1;
+
   /// No description provided for @studentIdLabel.
   ///
   /// In en, this message translates to:

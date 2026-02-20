@@ -40,6 +40,18 @@
         }
     },
     "developersTitle": "Development team",
+    "aboutAppHeadline": "Weather App (Demo) — A course project weather app",
+    "aboutIntro": "This app is built to simulate a modern mobile weather-viewing experience, while demonstrating core Flutter techniques such as multi-screen navigation (Navigator), state management with setState, building UI with Material Design, and organizing code by feature modules.",
+    "aboutHighlightsTitle": "Highlights",
+    "aboutHighlightHome": "• Home Screen: shows the current city, temperature, weather condition, and an illustrative icon.",
+    "aboutHighlightForecast": "• Forecast: includes an hourly forecast (horizontal list) and a 7-day forecast (vertical list) to help users see the trend.",
+    "aboutHighlightCityManagement": "• City Management: manages a sample city list (can add a city via a “fake form”), and selects a city to update what’s shown on Home.",
+    "aboutHighlightWeatherDetail": "• Weather Detail: shows detailed metrics such as humidity, wind speed, pressure, UV Index, and feels-like temperature.",
+    "aboutHighlightSettings": "• Settings: supports language switching and viewing member info in a modal (split layout: photo on the left, details on the right).",
+    "aboutDataScopeTitle": "Data & scope",
+    "aboutDataScope": "Within the scope of this assignment, weather data is hard-coded (a fixed list in Dart) to focus on UI, navigation flow, and user experience. The data model is separated so it can later be replaced with a real API (OpenWeather, WeatherAPI, …) without major UI changes.",
+    "aboutFutureTitle": "Future work",
+    "aboutFutureBullet1": "• Integrate a real-time weather API and cache data.",
     "studentIdLabel": "Student ID: {id}",
     "@studentIdLabel": {
         "placeholders": {

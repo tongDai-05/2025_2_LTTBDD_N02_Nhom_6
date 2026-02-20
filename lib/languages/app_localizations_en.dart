@@ -75,6 +75,51 @@ class AppLocalizationsEn extends AppLocalizations {
   String get developersTitle => 'Development team';
 
   @override
+  String get aboutAppHeadline =>
+      'Weather App (Demo) — A course project weather app';
+
+  @override
+  String get aboutIntro =>
+      'This app is built to simulate a modern mobile weather-viewing experience, while demonstrating core Flutter techniques such as multi-screen navigation (Navigator), state management with setState, building UI with Material Design, and organizing code by feature modules.';
+
+  @override
+  String get aboutHighlightsTitle => 'Highlights';
+
+  @override
+  String get aboutHighlightHome =>
+      '• Home Screen: shows the current city, temperature, weather condition, and an illustrative icon.';
+
+  @override
+  String get aboutHighlightForecast =>
+      '• Forecast: includes an hourly forecast (horizontal list) and a 7-day forecast (vertical list) to help users see the trend.';
+
+  @override
+  String get aboutHighlightCityManagement =>
+      '• City Management: manages a sample city list (can add a city via a “fake form”), and selects a city to update what’s shown on Home.';
+
+  @override
+  String get aboutHighlightWeatherDetail =>
+      '• Weather Detail: shows detailed metrics such as humidity, wind speed, pressure, UV Index, and feels-like temperature.';
+
+  @override
+  String get aboutHighlightSettings =>
+      '• Settings: supports language switching and viewing member info in a modal (split layout: photo on the left, details on the right).';
+
+  @override
+  String get aboutDataScopeTitle => 'Data & scope';
+
+  @override
+  String get aboutDataScope =>
+      'Within the scope of this assignment, weather data is hard-coded (a fixed list in Dart) to focus on UI, navigation flow, and user experience. The data model is separated so it can later be replaced with a real API (OpenWeather, WeatherAPI, …) without major UI changes.';
+
+  @override
+  String get aboutFutureTitle => 'Future work';
+
+  @override
+  String get aboutFutureBullet1 =>
+      '• Integrate a real-time weather API and cache data.';
+
+  @override
   String studentIdLabel(String id) {
     return 'Student ID: $id';
   }

@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
+import 'package:bai_tap_lon_cuoi_ki/Languages/app_localizations.dart';
+
 class AboutPage extends StatelessWidget {
   const AboutPage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[800],
@@ -12,9 +16,9 @@ class AboutPage extends StatelessWidget {
         title: Row(
           children: [
             const SizedBox(width: 12),
-            const Text(
-              'Giới thiệu',
-              style: TextStyle(
+            Text(
+              l10n.about,
+              style: const TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
@@ -28,94 +32,94 @@ class AboutPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment:
                 CrossAxisAlignment.start,
-            children: const [
+            children: [
               Text(
-                'Weather App (Demo) — Ứng dụng thời tiết phục vụ học phần',
-                style: TextStyle(
+                l10n.aboutAppHeadline,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
               Text(
-                'Ứng dụng được xây dựng với mục tiêu mô phỏng trải nghiệm xem thời tiết hiện đại trên thiết bị di động, đồng thời thể hiện đầy đủ các kỹ thuật cơ bản trong Flutter như: điều hướng nhiều màn hình (Navigator), quản lý trạng thái bằng setState, xây dựng UI theo Material Design, và tổ chức mã nguồn theo từng nhóm chức năng.',
-                style: TextStyle(
+                l10n.aboutIntro,
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.4,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
-                'Điểm nổi bật',
-                style: TextStyle(
+                l10n.aboutHighlightsTitle,
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
-                '• Home Screen: hiển thị thành phố hiện tại, nhiệt độ, trạng thái thời tiết và icon minh hoạ.',
-                style: TextStyle(
+                l10n.aboutHighlightHome,
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.4,
                 ),
               ),
               Text(
-                '• Forecast: có dự báo theo giờ (danh sách ngang) và dự báo 7 ngày (danh sách dọc) để người dùng nắm xu hướng thời tiết.',
-                style: TextStyle(
+                l10n.aboutHighlightForecast,
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.4,
                 ),
               ),
               Text(
-                '• City Management: quản lý danh sách thành phố mẫu (có thể thêm thành phố bằng “fake form”), chọn thành phố để cập nhật dữ liệu hiển thị trên Home.',
-                style: TextStyle(
+                l10n.aboutHighlightCityManagement,
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.4,
                 ),
               ),
               Text(
-                '• Weather Detail: hiển thị các thông số chi tiết như độ ẩm, tốc độ gió, áp suất, UV Index và nhiệt độ cảm nhận (Feels Like).',
-                style: TextStyle(
+                l10n.aboutHighlightWeatherDetail,
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.4,
                 ),
               ),
               Text(
-                '• Settings: hỗ trợ đổi ngôn ngữ, xem thông tin thành viên theo dạng modal (chia 2 phần: trái là ảnh, phải là thông tin chi tiết).',
-                style: TextStyle(
+                l10n.aboutHighlightSettings,
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.4,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
-                'Dữ liệu & phạm vi',
-                style: TextStyle(
+                l10n.aboutDataScopeTitle,
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
-                'Trong phạm vi bài tập, dữ liệu thời tiết được thiết kế theo dạng hardcode (danh sách cố định trong Dart) nhằm tập trung vào việc trình bày giao diện, luồng điều hướng và trải nghiệm người dùng. Kiến trúc dữ liệu được tách riêng để về sau có thể thay thế bằng API thật (OpenWeather, WeatherAPI, ...) mà không cần thay đổi lớn về UI.',
-                style: TextStyle(
+                l10n.aboutDataScope,
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.4,
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Text(
-                'Hướng phát triển',
-                style: TextStyle(
+                l10n.aboutFutureTitle,
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 8),
+              const SizedBox(height: 8),
               Text(
-                '• Tích hợp API thời tiết theo thời gian thực và cache dữ liệu.',
-                style: TextStyle(
+                l10n.aboutFutureBullet1,
+                style: const TextStyle(
                   fontSize: 16,
                   height: 1.4,
                 ),

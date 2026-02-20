@@ -75,6 +75,51 @@ class AppLocalizationsVi extends AppLocalizations {
   String get developersTitle => 'Thành viên phát triển';
 
   @override
+  String get aboutAppHeadline =>
+      'Weather App (Demo) — Ứng dụng thời tiết phục vụ học phần';
+
+  @override
+  String get aboutIntro =>
+      'Ứng dụng được xây dựng với mục tiêu mô phỏng trải nghiệm xem thời tiết hiện đại trên thiết bị di động, đồng thời thể hiện đầy đủ các kỹ thuật cơ bản trong Flutter như: điều hướng nhiều màn hình (Navigator), quản lý trạng thái bằng setState, xây dựng UI theo Material Design, và tổ chức mã nguồn theo từng nhóm chức năng.';
+
+  @override
+  String get aboutHighlightsTitle => 'Điểm nổi bật';
+
+  @override
+  String get aboutHighlightHome =>
+      '• Home Screen: hiển thị thành phố hiện tại, nhiệt độ, trạng thái thời tiết và icon minh hoạ.';
+
+  @override
+  String get aboutHighlightForecast =>
+      '• Forecast: có dự báo theo giờ (danh sách ngang) và dự báo 7 ngày (danh sách dọc) để người dùng nắm xu hướng thời tiết.';
+
+  @override
+  String get aboutHighlightCityManagement =>
+      '• City Management: quản lý danh sách thành phố mẫu (có thể thêm thành phố bằng “fake form”), chọn thành phố để cập nhật dữ liệu hiển thị trên Home.';
+
+  @override
+  String get aboutHighlightWeatherDetail =>
+      '• Weather Detail: hiển thị các thông số chi tiết như độ ẩm, tốc độ gió, áp suất, UV Index và nhiệt độ cảm nhận (Feels Like).';
+
+  @override
+  String get aboutHighlightSettings =>
+      '• Settings: hỗ trợ đổi ngôn ngữ, xem thông tin thành viên theo dạng modal (chia 2 phần: trái là ảnh, phải là thông tin chi tiết).';
+
+  @override
+  String get aboutDataScopeTitle => 'Dữ liệu & phạm vi';
+
+  @override
+  String get aboutDataScope =>
+      'Trong phạm vi bài tập, dữ liệu thời tiết được thiết kế theo dạng hardcode (danh sách cố định trong Dart) nhằm tập trung vào việc trình bày giao diện, luồng điều hướng và trải nghiệm người dùng. Kiến trúc dữ liệu được tách riêng để về sau có thể thay thế bằng API thật (OpenWeather, WeatherAPI, ...) mà không cần thay đổi lớn về UI.';
+
+  @override
+  String get aboutFutureTitle => 'Hướng phát triển';
+
+  @override
+  String get aboutFutureBullet1 =>
+      '• Tích hợp API thời tiết theo thời gian thực và cache dữ liệu.';
+
+  @override
   String studentIdLabel(String id) {
     return 'MSV: $id';
   }
