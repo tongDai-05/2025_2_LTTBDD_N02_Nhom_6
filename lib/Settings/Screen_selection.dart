@@ -134,15 +134,15 @@ class SettingsIndexPage extends StatelessWidget {
                 borderRadius:
                     BorderRadius.circular(20),
               ),
-              child: const ListTile(
-                leading: Icon(
+              child: ListTile(
+                leading: const Icon(
                   Icons.info_outline,
                   size: 32,
                   color: Colors.orange,
                 ),
                 title: Text(
-                  'About',
-                  style: TextStyle(
+                  l10n.about,
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
