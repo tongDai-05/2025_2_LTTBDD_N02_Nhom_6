@@ -53,6 +53,22 @@ class AppLocalizationsVi extends AppLocalizations {
   String get cityManager => 'Quản lý thành phố';
 
   @override
+  String get backTooltip => 'Quay lại';
+
+  @override
+  String get addCity => 'Thêm thành phố';
+
+  @override
+  String get done => 'Xong';
+
+  @override
+  String get cancel => 'Huỷ';
+
+  @override
+  String get cityListFullMessage =>
+      'Danh sách thành phố đã đầy (không còn thành phố để thêm).';
+
+  @override
   String get detailContent => 'Nhấn để xem chi tiết';
 
   @override

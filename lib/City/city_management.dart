@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../Languages/app_localizations.dart';
 import '../Data/weather_data.dart';
 
 class CityManagementResult {
@@ -42,6 +43,7 @@ class _CityManagementScreenState
   }
 
   Future<void> _addCity() async {
+    final l10n = AppLocalizations.of(context)!;
     final existing = _cities
         .map(
           (c) => c.cityName.toLowerCase().trim(),
@@ -59,10 +61,8 @@ class _CityManagementScreenState
     if (available.isEmpty) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text(
-            'Danh sách thành phố đã đầy (không còn thành phố để thêm).',
-          ),
+        SnackBar(
+          content: Text(l10n.cityListFullMessage),
         ),
       );
       return;
@@ -73,8 +73,11 @@ class _CityManagementScreenState
           context: context,
           barrierDismissible: true,
           builder: (context) {
+            final l10n = AppLocalizations.of(
+              context,
+            )!;
             return AlertDialog(
-              title: const Text('Thêm thành phố'),
+              title: Text(l10n.addCity),
               content: SizedBox(
                 width: double.maxFinite,
                 child: ListView.separated(
@@ -105,7 +108,7 @@ class _CityManagementScreenState
                 TextButton(
                   onPressed: () =>
                       Navigator.pop(context),
-                  child: const Text('Huỷ'),
+                  child: Text(l10n.cancel),
                 ),
               ],
             );
@@ -134,6 +137,8 @@ class _CityManagementScreenState
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) {
@@ -144,22 +149,22 @@ class _CityManagementScreenState
         appBar: AppBar(
           backgroundColor: Colors.blue[800],
           foregroundColor: Colors.white,
-          title: const Text('Quản lý thành phố'),
+          title: Text(l10n.cityManager),
           leading: IconButton(
             onPressed: _done,
             icon: const Icon(Icons.arrow_back),
-            tooltip: 'Quay lại',
+            tooltip: l10n.backTooltip,
           ),
           actions: [
             IconButton(
               onPressed: _addCity,
               icon: const Icon(Icons.add),
-              tooltip: 'Add city',
+              tooltip: l10n.addCity,
             ),
             IconButton(
               onPressed: _done,
               icon: const Icon(Icons.check),
-              tooltip: 'Done',
+              tooltip: l10n.done,
             ),
           ],
         ),

@@ -53,6 +53,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String get cityManager => 'City Manager';
 
   @override
+  String get backTooltip => 'Back';
+
+  @override
+  String get addCity => 'Add city';
+
+  @override
+  String get done => 'Done';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get cityListFullMessage =>
+      'The city list is full (no more cities to add).';
+
+  @override
   String get detailContent => 'Tap to view details';
 
   @override

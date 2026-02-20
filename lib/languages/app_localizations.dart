@@ -182,6 +182,36 @@ abstract class AppLocalizations {
   /// **'City Manager'**
   String get cityManager;
 
+  /// No description provided for @backTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get backTooltip;
+
+  /// No description provided for @addCity.
+  ///
+  /// In en, this message translates to:
+  /// **'Add city'**
+  String get addCity;
+
+  /// No description provided for @done.
+  ///
+  /// In en, this message translates to:
+  /// **'Done'**
+  String get done;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @cityListFullMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'The city list is full (no more cities to add).'**
+  String get cityListFullMessage;
+
   /// No description provided for @detailContent.
   ///
   /// In en, this message translates to:
