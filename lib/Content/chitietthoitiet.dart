@@ -41,16 +41,19 @@ class ChiTietThoiTiet extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blue[800],
         foregroundColor: Colors.white,
-        backgroundColor: Colors.blue[700],
-        centerTitle: true,
-        title: Text(
-          'Chi tiết thời tiết - ${city.cityName}',
-        ),
-        titleTextStyle: const TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.normal,
-          color: Colors.white,
+        title: Row(
+          children: [
+            const SizedBox(width: 12),
+            Text(
+              l10n.detailPageTitle,
+              style: const TextStyle(
+                fontSize: 23,
+                fontWeight: FontWeight.normal,
+              ),
+            ),
+          ],
         ),
       ),
       body: SingleChildScrollView(
@@ -108,9 +111,9 @@ class ChiTietThoiTiet extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              const Text(
-                'Thông tin chi tiết',
-                style: TextStyle(
+              Text(
+                l10n.detailInfoTitle,
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -118,30 +121,30 @@ class ChiTietThoiTiet extends StatelessWidget {
               const SizedBox(height: 10),
               _metricTile(
                 icon: Icons.water_drop_outlined,
-                label: 'Độ ẩm',
+                label: l10n.humidityLabel,
                 value:
                     '${metrics.humidityPercent}%',
               ),
               _metricTile(
                 icon: Icons.air,
-                label: 'Tốc độ gió',
+                label: l10n.windSpeedLabel,
                 value:
                     '${metrics.windKmh.toStringAsFixed(1)} km/h',
               ),
               _metricTile(
                 icon: Icons.speed,
-                label: 'Áp suất khí quyển',
+                label: l10n.pressureLabel,
                 value:
                     '${metrics.pressureHpa} hPa',
               ),
               _metricTile(
                 icon: Icons.wb_sunny_outlined,
-                label: 'UV Index',
+                label: l10n.uvIndexLabel,
                 value: '${metrics.uvIndex}',
               ),
               _metricTile(
                 icon: Icons.thermostat,
-                label: 'Feels Like',
+                label: l10n.feelsLikeLabel,
                 value: '${metrics.feelsLikeC}°C',
               ),
             ],

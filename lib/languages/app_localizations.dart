@@ -290,6 +290,48 @@ abstract class AppLocalizations {
   /// **'• Integrate a real-time weather API and cache data.'**
   String get aboutFutureBullet1;
 
+  /// No description provided for @detailPageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Details'**
+  String get detailPageTitle;
+
+  /// No description provided for @detailInfoTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Detailed information'**
+  String get detailInfoTitle;
+
+  /// No description provided for @humidityLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Humidity'**
+  String get humidityLabel;
+
+  /// No description provided for @windSpeedLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind speed'**
+  String get windSpeedLabel;
+
+  /// No description provided for @pressureLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Atmospheric pressure'**
+  String get pressureLabel;
+
+  /// No description provided for @uvIndexLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'UV Index'**
+  String get uvIndexLabel;
+
+  /// No description provided for @feelsLikeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Feels like'**
+  String get feelsLikeLabel;
+
   /// No description provided for @studentIdLabel.
   ///
   /// In en, this message translates to:

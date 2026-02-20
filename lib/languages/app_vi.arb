@@ -52,6 +52,13 @@
     "aboutDataScope": "Trong phạm vi bài tập, dữ liệu thời tiết được thiết kế theo dạng hardcode (danh sách cố định trong Dart) nhằm tập trung vào việc trình bày giao diện, luồng điều hướng và trải nghiệm người dùng. Kiến trúc dữ liệu được tách riêng để về sau có thể thay thế bằng API thật (OpenWeather, WeatherAPI, ...) mà không cần thay đổi lớn về UI.",
     "aboutFutureTitle": "Hướng phát triển",
     "aboutFutureBullet1": "• Tích hợp API thời tiết theo thời gian thực và cache dữ liệu.",
+    "detailPageTitle": "Chi tiết",
+    "detailInfoTitle": "Thông tin chi tiết",
+    "humidityLabel": "Độ ẩm",
+    "windSpeedLabel": "Tốc độ gió",
+    "pressureLabel": "Áp suất khí quyển",
+    "uvIndexLabel": "UV Index",
+    "feelsLikeLabel": "Nhiệt độ cảm nhận",
     "studentIdLabel": "MSV: {id}",
     "@studentIdLabel": {
         "placeholders": {

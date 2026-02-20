@@ -120,6 +120,27 @@ class AppLocalizationsEn extends AppLocalizations {
       '• Integrate a real-time weather API and cache data.';
 
   @override
+  String get detailPageTitle => 'Details';
+
+  @override
+  String get detailInfoTitle => 'Detailed information';
+
+  @override
+  String get humidityLabel => 'Humidity';
+
+  @override
+  String get windSpeedLabel => 'Wind speed';
+
+  @override
+  String get pressureLabel => 'Atmospheric pressure';
+
+  @override
+  String get uvIndexLabel => 'UV Index';
+
+  @override
+  String get feelsLikeLabel => 'Feels like';
+
+  @override
   String studentIdLabel(String id) {
     return 'Student ID: $id';
   }

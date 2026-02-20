@@ -120,6 +120,27 @@ class AppLocalizationsVi extends AppLocalizations {
       '• Tích hợp API thời tiết theo thời gian thực và cache dữ liệu.';
 
   @override
+  String get detailPageTitle => 'Chi tiết';
+
+  @override
+  String get detailInfoTitle => 'Thông tin chi tiết';
+
+  @override
+  String get humidityLabel => 'Độ ẩm';
+
+  @override
+  String get windSpeedLabel => 'Tốc độ gió';
+
+  @override
+  String get pressureLabel => 'Áp suất khí quyển';
+
+  @override
+  String get uvIndexLabel => 'UV Index';
+
+  @override
+  String get feelsLikeLabel => 'Nhiệt độ cảm nhận';
+
+  @override
   String studentIdLabel(String id) {
     return 'MSV: $id';
   }
