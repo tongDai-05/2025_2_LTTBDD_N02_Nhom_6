@@ -78,4 +78,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get weatherStormWarning => 'Rainy, thunderstorm warning';
+
+  @override
+  String get addCityTitle => 'Add City';
+
+  @override
+  String get allCitiesAdded => 'All cities have been added to the list.';
+
+  @override
+  String get cancel => 'Cancel';
+
+  @override
+  String get confirmAdd => 'Confirm Add';
+
+  @override
+  String get otherCities => 'Other Cities';
+
+  @override
+  String get low => 'Low';
+
+  @override
+  String get medium => 'Medium';
+
+  @override
+  String get high => 'High';
 }

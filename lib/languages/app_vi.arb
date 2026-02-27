@@ -13,25 +13,19 @@
     "settinglag": "Ngôn ngữ",
     "@currentCityCount": {
         "placeholders": {
-            "count": {
-                "type": "int"
-            }
+            "count": { "type": "int" }
         }
     },
     "detailTitle": "Chi tiết {city}",
     "@detailTitle": {
         "placeholders": {
-            "city": {
-                "type": "String"
-            }
+            "city": { "type": "String" }
         }
     },
     "todayWithDate": "Hôm nay, {date}",
     "@todayWithDate": {
         "placeholders": {
-            "date": {
-                "type": "String"
-            }
+            "date": { "type": "String" }
         }
     },
     "hourlyForecast": "Dự báo theo giờ",
@@ -40,12 +34,18 @@
     "studentIdLabel": "MSV: {id}",
     "@studentIdLabel": {
         "placeholders": {
-            "id": {
-                "type": "String"
-            }
+            "id": { "type": "String" }
         }
     },
     "weatherSunny": "Có nắng",
     "weatherCloudy": "Nhiều mây",
-    "weatherStormWarning": "Có mưa, Cảnh báo sấm sét"
+    "weatherStormWarning": "Có mưa, Cảnh báo sấm sét",
+    "addCityTitle": "Thêm thành phố",
+    "allCitiesAdded": "Tất cả thành phố đã được thêm vào danh sách.",
+    "cancel": "Hủy",
+    "confirmAdd": "Xác nhận thêm",
+    "otherCities": "Các thành phố khác",
+    "low": "Thấp",
+    "medium": "Trung bình",
+    "high": "Cao"
 }

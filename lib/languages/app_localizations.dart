@@ -223,6 +223,54 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Rainy, thunderstorm warning'**
   String get weatherStormWarning;
+
+  /// No description provided for @addCityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add City'**
+  String get addCityTitle;
+
+  /// No description provided for @allCitiesAdded.
+  ///
+  /// In en, this message translates to:
+  /// **'All cities have been added to the list.'**
+  String get allCitiesAdded;
+
+  /// No description provided for @cancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get cancel;
+
+  /// No description provided for @confirmAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm Add'**
+  String get confirmAdd;
+
+  /// No description provided for @otherCities.
+  ///
+  /// In en, this message translates to:
+  /// **'Other Cities'**
+  String get otherCities;
+
+  /// No description provided for @low.
+  ///
+  /// In en, this message translates to:
+  /// **'Low'**
+  String get low;
+
+  /// No description provided for @medium.
+  ///
+  /// In en, this message translates to:
+  /// **'Medium'**
+  String get medium;
+
+  /// No description provided for @high.
+  ///
+  /// In en, this message translates to:
+  /// **'High'**
+  String get high;
 }
 
 class _AppLocalizationsDelegate

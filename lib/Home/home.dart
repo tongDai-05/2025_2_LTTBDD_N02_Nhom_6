@@ -4,10 +4,6 @@ import 'package:bai_tap_lon_cuoi_ki/Settings/Selection_languague.dart';
 import 'package:bai_tap_lon_cuoi_ki/Settings/profile.dart';
 import 'package:bai_tap_lon_cuoi_ki/languages/app_localizations.dart';
 
-void main() {
-  runApp(MaterialApp(home: MyApp()));
-}
-
 class ManHinhChinh extends StatefulWidget {
   final Locale locale;
   final ValueChanged<Locale> onLocaleChanged;
@@ -32,17 +28,16 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
     WeatherType.cloudy,
   ];
   List dsDoAm = ['65%', '80%', '75%'];
-  List dsUV = ['Thấp', 'Trung bình', 'Cao'];
   List dsTamNhin = ['10 km', '8 km', '12 km'];
   List dsApSuat = ['1012 hPa', '1008 hPa', '1010 hPa'];
   List dsLuongMua = ['0 mm', '15 mm', '2 mm'];
 
-
   String keyword = "";
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-
+    List dsUV = [l10n.low, l10n.medium, l10n.high];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[800],
@@ -52,7 +47,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
             const SizedBox(width: 30),
             Text(
               l10n.appTitle,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 32,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
@@ -99,7 +94,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                           weatherType: dsWeather[index],
                           doAm: dsDoAm[index],
                           chiSoUV: dsUV[index], 
-                          tamNhin: dsTamNhin[index], 
+                          tamNhin: dsTamNhin[index],
                           apSuat: dsApSuat[index],
                           luongMua: dsLuongMua[index],
                         ),
@@ -189,7 +184,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     title: Text(
-                      "Thêm thành phố",
+                      l10n.addCityTitle,
                       style: TextStyle(
                         color: Colors.blue[900],
                         fontWeight: FontWeight.bold,
@@ -198,11 +193,9 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                     content: SizedBox(
                       width: double.maxFinite,
                       child: danhSachChuaCo.isEmpty
-                          ? const Padding(
-                              padding: EdgeInsets.symmetric(vertical: 20),
-                              child: Text(
-                                "Tất cả thành phố đã được thêm vào danh sách.",
-                              ),
+                          ? Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 20),
+                              child: Text(l10n.allCitiesAdded),
                             )
                           : ListView.separated(
                               shrinkWrap: true,
@@ -212,18 +205,11 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                               itemBuilder: (context, i) {
                                 final selected = indexDuocChon.contains(i);
                                 return CheckboxListTile(
-                                  title: Text(
-                                    danhSachChuaCo[i]['ten'],
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
+                                  title: Text(danhSachChuaCo[i]['ten']),
                                   secondary: Icon(
                                     danhSachChuaCo[i]['icon'],
                                     color: Colors.orange,
                                   ),
-                                  activeColor: Colors.blue[700],
-                                  checkColor: Colors.white,
                                   value: selected,
                                   onChanged: (val) {
                                     setDialogState(() {
@@ -240,17 +226,14 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                       TextButton(
                         onPressed: () => Navigator.pop(context),
                         child: Text(
-                          "Hủy",
+                          l10n.cancel,
                           style: TextStyle(color: Colors.grey[600]),
-                        ),
+                        ), 
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue[700],
                           foregroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
                         ),
                         onPressed: indexDuocChon.isEmpty
                             ? null
@@ -265,7 +248,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                                 });
                                 Navigator.pop(context);
                               },
-                        child: const Text("Xác nhận thêm"),
+                        child: Text(l10n.confirmAdd),
                       ),
                     ],
                   );
@@ -276,9 +259,9 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
         },
         backgroundColor: Colors.blue[800],
         icon: const Icon(Icons.add, color: Colors.white),
-        label: const Text(
-          "Các thành phố khác",
-          style: TextStyle(color: Colors.white),
+        label: Text(
+          l10n.otherCities,
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );

@@ -78,4 +78,28 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get weatherStormWarning => 'Có mưa, Cảnh báo sấm sét';
+
+  @override
+  String get addCityTitle => 'Thêm thành phố';
+
+  @override
+  String get allCitiesAdded => 'Tất cả thành phố đã được thêm vào danh sách.';
+
+  @override
+  String get cancel => 'Hủy';
+
+  @override
+  String get confirmAdd => 'Xác nhận thêm';
+
+  @override
+  String get otherCities => 'Các thành phố khác';
+
+  @override
+  String get low => 'Thấp';
+
+  @override
+  String get medium => 'Trung bình';
+
+  @override
+  String get high => 'Cao';
 }

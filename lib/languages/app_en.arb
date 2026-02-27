@@ -13,25 +13,19 @@
     "settinglag": "Language",
     "@currentCityCount": {
         "placeholders": {
-            "count": {
-                "type": "int"
-            }
+            "count": { "type": "int" }
         }
     },
     "detailTitle": "Details {city}",
     "@detailTitle": {
         "placeholders": {
-            "city": {
-                "type": "String"
-            }
+            "city": { "type": "String" }
         }
     },
     "todayWithDate": "Today, {date}",
     "@todayWithDate": {
         "placeholders": {
-            "date": {
-                "type": "String"
-            }
+            "date": { "type": "String" }
         }
     },
     "hourlyForecast": "Hourly forecast",
@@ -40,12 +34,18 @@
     "studentIdLabel": "Student ID: {id}",
     "@studentIdLabel": {
         "placeholders": {
-            "id": {
-                "type": "String"
-            }
+            "id": { "type": "String" }
         }
     },
     "weatherSunny": "Sunny",
     "weatherCloudy": "Cloudy",
-    "weatherStormWarning": "Rainy, thunderstorm warning"
+    "weatherStormWarning": "Rainy, thunderstorm warning",
+    "addCityTitle": "Add City",
+    "allCitiesAdded": "All cities have been added to the list.",
+    "cancel": "Cancel",
+    "confirmAdd": "Confirm Add",
+    "otherCities": "Other Cities",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High"
 }
