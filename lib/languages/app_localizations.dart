@@ -271,6 +271,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'High'**
   String get high;
+
+  /// No description provided for @todayDetailTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Today Details'**
+  String get todayDetailTitle;
+
+  /// No description provided for @uvIndex.
+  ///
+  /// In en, this message translates to:
+  /// **'UV Index'**
+  String get uvIndex;
+
+  /// No description provided for @rainAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Rainfall'**
+  String get rainAmount;
+
+  /// No description provided for @visibility.
+  ///
+  /// In en, this message translates to:
+  /// **'Visibility'**
+  String get visibility;
+
+  /// No description provided for @humidity.
+  ///
+  /// In en, this message translates to:
+  /// **'Humidity'**
+  String get humidity;
+
+  /// No description provided for @pressure.
+  ///
+  /// In en, this message translates to:
+  /// **'Pressure'**
+  String get pressure;
+
+  /// No description provided for @wind.
+  ///
+  /// In en, this message translates to:
+  /// **'Wind'**
+  String get wind;
 }
 
 class _AppLocalizationsDelegate

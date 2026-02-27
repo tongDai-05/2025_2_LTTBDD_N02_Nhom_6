@@ -102,4 +102,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get high => 'High';
+
+  @override
+  String get todayDetailTitle => 'Today Details';
+
+  @override
+  String get uvIndex => 'UV Index';
+
+  @override
+  String get rainAmount => 'Rainfall';
+
+  @override
+  String get visibility => 'Visibility';
+
+  @override
+  String get humidity => 'Humidity';
+
+  @override
+  String get pressure => 'Pressure';
+
+  @override
+  String get wind => 'Wind';
 }

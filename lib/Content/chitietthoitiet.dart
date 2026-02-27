@@ -5,15 +5,16 @@ import 'package:intl/intl.dart';
 enum WeatherType { sunny, stormWarning, cloudy }
 
 class ChiTietThoiTiet extends StatelessWidget {
-  String tenTP;
-  String nhietDo;
-  WeatherType weatherType;
-  String doAm;
-  String chiSoUV;
-  String tamNhin; 
-  String apSuat;
-  String luongMua;
-  ChiTietThoiTiet({
+  final String tenTP;
+  final String nhietDo;
+  final WeatherType weatherType;
+  final String doAm;
+  final String chiSoUV;
+  final String tamNhin;
+  final String apSuat;
+  final String luongMua;
+
+  const ChiTietThoiTiet({
     super.key,
     required this.tenTP,
     required this.nhietDo,
@@ -24,6 +25,7 @@ class ChiTietThoiTiet extends StatelessWidget {
     required this.apSuat,
     required this.luongMua,
   });
+
   String getImageByWeather() {
     switch (weatherType) {
       case WeatherType.cloudy:
@@ -34,6 +36,7 @@ class ChiTietThoiTiet extends StatelessWidget {
         return 'imgs/nang.jpg';
     }
   }
+
   String getWeatherText(AppLocalizations l10n) {
     switch (weatherType) {
       case WeatherType.sunny:
@@ -44,69 +47,7 @@ class ChiTietThoiTiet extends StatelessWidget {
         return l10n.weatherCloudy;
     }
   }
-  List gio = [
-    '0h',
-    '2h',
-    '4h',
-    '6h',
-    '8h',
-    '10h',
-    '12h',
-    '14h',
-    '16h',
-    '18h',
-    '20h',
-    '22h',
-    '0h',
-  ];
-  List nhietDoTheoGio = [
-    '24°C',
-    '23°C',
-    '22°C',
-    '25°C',
-    '27°C',
-    '30°C',
-    '32°C',
-    '33°C',
-    '32°C',
-    '30°C',
-    '28°C',
-    '26°C',
-    '25°C',
-  ];
-  List iconTheoGio = [
-    Icons.nights_stay,
-    Icons.nights_stay,
-    Icons.nights_stay,
-    Icons.wb_sunny,
-    Icons.wb_sunny,
-    Icons.wb_sunny,
-    Icons.wb_sunny,
-    Icons.wb_sunny,
-    Icons.wb_sunny,
-    Icons.cloud,
-    Icons.cloud,
-    Icons.nights_stay,
-    Icons.nights_stay,
-  ];
-  List nhietDo7Ngay = [
-    '32°C',
-    '31°C',
-    '30°C',
-    '29°C',
-    '33°C',
-    '34°C',
-    '32°C',
-  ];
-  List icon7Ngay = [
-    Icons.wb_sunny,
-    Icons.cloud,
-    Icons.cloud,
-    Icons.wb_sunny,
-    Icons.thunderstorm,
-    Icons.wb_sunny,
-    Icons.wb_sunny,
-  ];
+
   Widget _buildInfoCard(
     IconData icon,
     String label,
@@ -128,8 +69,6 @@ class ChiTietThoiTiet extends StatelessWidget {
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment:
-            CrossAxisAlignment.center,
         children: [
           Icon(icon, color: color, size: 28),
           const SizedBox(height: 8),
@@ -148,17 +87,88 @@ class ChiTietThoiTiet extends StatelessWidget {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final localeName = Localizations.localeOf(context).toString();
     final todayFormatted = DateFormat.yMd(localeName).format(DateTime.now());
+
     final days7 = List.generate(
       7,
       (index) => DateFormat.E(
         localeName,
       ).format(DateTime.now().add(Duration(days: index))),
     );
+
+    final gio = [
+      '0h',
+      '2h',
+      '4h',
+      '6h',
+      '8h',
+      '10h',
+      '12h',
+      '14h',
+      '16h',
+      '18h',
+      '20h',
+      '22h',
+      '0h',
+    ];
+
+    final nhietDoTheoGio = [
+      '24°C',
+      '23°C',
+      '22°C',
+      '25°C',
+      '27°C',
+      '30°C',
+      '32°C',
+      '33°C',
+      '32°C',
+      '30°C',
+      '28°C',
+      '26°C',
+      '25°C',
+    ];
+
+    final iconTheoGio = [
+      Icons.nights_stay,
+      Icons.nights_stay,
+      Icons.nights_stay,
+      Icons.wb_sunny,
+      Icons.wb_sunny,
+      Icons.wb_sunny,
+      Icons.wb_sunny,
+      Icons.wb_sunny,
+      Icons.wb_sunny,
+      Icons.cloud,
+      Icons.cloud,
+      Icons.nights_stay,
+      Icons.nights_stay,
+    ];
+
+    final nhietDo7Ngay = [
+      '32°C',
+      '31°C',
+      '30°C',
+      '29°C',
+      '33°C',
+      '34°C',
+      '32°C',
+    ];
+
+    final icon7Ngay = [
+      Icons.wb_sunny,
+      Icons.cloud,
+      Icons.cloud,
+      Icons.wb_sunny,
+      Icons.thunderstorm,
+      Icons.wb_sunny,
+      Icons.wb_sunny,
+    ];
+
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
@@ -219,15 +229,11 @@ class ChiTietThoiTiet extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Column(
-                      mainAxisAlignment:
-                          MainAxisAlignment.center, 
-                      crossAxisAlignment:
-                          CrossAxisAlignment.center, 
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           gio[index],
                           style: const TextStyle(fontWeight: FontWeight.bold),
-                          textAlign: TextAlign.center,
                         ),
                         const SizedBox(height: 4),
                         Icon(
@@ -236,17 +242,13 @@ class ChiTietThoiTiet extends StatelessWidget {
                           size: 28,
                         ),
                         const SizedBox(height: 4),
-                        Text(
-                          nhietDoTheoGio[index],
-                          textAlign: TextAlign.center,
-                        ),
+                        Text(nhietDoTheoGio[index]),
                       ],
                     ),
                   );
                 },
               ),
             ),
-
             const SizedBox(height: 30),
             Text(
               l10n.sevenDayForecast,
@@ -276,11 +278,10 @@ class ChiTietThoiTiet extends StatelessWidget {
                 );
               },
             ),
-
             const SizedBox(height: 30),
-            const Text(
-              "Chi tiết hôm nay",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Text(
+              l10n.todayDetailTitle,
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 15),
             Padding(
@@ -294,30 +295,35 @@ class ChiTietThoiTiet extends StatelessWidget {
                 children: [
                   _buildInfoCard(
                     Icons.wb_sunny_outlined,
-                    "Chỉ số UV",
+                    l10n.uvIndex,
                     chiSoUV,
                     Colors.orange,
                   ),
                   _buildInfoCard(
                     Icons.umbrella_outlined,
-                    "Lượng mưa",
+                    l10n.rainAmount,
                     luongMua,
                     Colors.blue,
                   ),
                   _buildInfoCard(
                     Icons.remove_red_eye_outlined,
-                    "Tầm nhìn",
+                    l10n.visibility,
                     tamNhin,
                     Colors.green,
                   ),
                   _buildInfoCard(
                     Icons.water_drop_outlined,
-                    "Độ ẩm",
+                    l10n.humidity,
                     doAm,
                     Colors.cyan,
                   ),
-                  _buildInfoCard(Icons.speed, "Áp suất", apSuat, Colors.purple),
-                  _buildInfoCard(Icons.air, "Gió", "12 km/h", Colors.teal),
+                  _buildInfoCard(
+                    Icons.speed,
+                    l10n.pressure,
+                    apSuat,
+                    Colors.purple,
+                  ),
+                  _buildInfoCard(Icons.air, l10n.wind, "12 km/h", Colors.teal),
                 ],
               ),
             ),

@@ -102,4 +102,25 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get high => 'Cao';
+
+  @override
+  String get todayDetailTitle => 'Chi tiết hôm nay';
+
+  @override
+  String get uvIndex => 'Chỉ số UV';
+
+  @override
+  String get rainAmount => 'Lượng mưa';
+
+  @override
+  String get visibility => 'Tầm nhìn';
+
+  @override
+  String get humidity => 'Độ ẩm';
+
+  @override
+  String get pressure => 'Áp suất';
+
+  @override
+  String get wind => 'Gió';
 }
