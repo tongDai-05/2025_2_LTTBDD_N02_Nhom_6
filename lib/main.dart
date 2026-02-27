@@ -28,14 +28,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       locale: _locale,
-      localizationsDelegates:
-          AppLocalizations.localizationsDelegates,
-      supportedLocales:
-          AppLocalizations.supportedLocales,
-      home: MainScreen(
-        locale: _locale,
-        onLocaleChanged: _setLocale,
-      ),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      home: MainScreen(locale: _locale, onLocaleChanged: _setLocale),
     );
   }
 }
@@ -51,8 +46,7 @@ class MainScreen extends StatefulWidget {
   });
 
   @override
-  _MainScreenState createState() =>
-      _MainScreenState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -85,15 +79,11 @@ class _MainScreenState extends State<MainScreen> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
-            label: AppLocalizations.of(
-              context,
-            )!.home,
+            label: AppLocalizations.of(context)!.home,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings_outlined),
-            label: AppLocalizations.of(
-              context,
-            )!.setting,
+            label: AppLocalizations.of(context)!.setting,
           ),
         ],
       ),
