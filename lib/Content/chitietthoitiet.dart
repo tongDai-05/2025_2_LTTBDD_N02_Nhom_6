@@ -55,15 +55,19 @@ class ChiTietThoiTiet extends StatelessWidget {
     Color color,
   ) {
     return Container(
-      padding: const EdgeInsets.all(12),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
+        gradient: LinearGradient(
+          colors: [color.withOpacity(0.15), color.withOpacity(0.05)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(18),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: color.withOpacity(0.15),
             blurRadius: 10,
-            offset: const Offset(0, 4),
+            offset: const Offset(0, 5),
           ),
         ],
       ),
@@ -71,16 +75,20 @@ class ChiTietThoiTiet extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon, color: color, size: 28),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
             label,
-            style: TextStyle(color: Colors.grey[600], fontSize: 13),
+            style: TextStyle(
+              color: Colors.grey[700],
+              fontSize: 13,
+              fontWeight: FontWeight.w500,
+            ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 2),
+          const SizedBox(height: 4),
           Text(
             value,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
             textAlign: TextAlign.center,
           ),
         ],
@@ -92,7 +100,9 @@ class ChiTietThoiTiet extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final localeName = Localizations.localeOf(context).toString();
-    final todayFormatted = DateFormat.yMd(localeName).format(DateTime.now());
+    final todayFormatted = DateFormat.yMMMMEEEEd(
+      localeName,
+    ).format(DateTime.now());
 
     final days7 = List.generate(
       7,
@@ -114,7 +124,6 @@ class ChiTietThoiTiet extends StatelessWidget {
       '18h',
       '20h',
       '22h',
-      '0h',
     ];
 
     final nhietDoTheoGio = [
@@ -130,7 +139,6 @@ class ChiTietThoiTiet extends StatelessWidget {
       '30°C',
       '28°C',
       '26°C',
-      '25°C',
     ];
 
     final iconTheoGio = [
@@ -171,164 +179,230 @@ class ChiTietThoiTiet extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         foregroundColor: Colors.white,
         title: Text(l10n.detailTitle(tenTP)),
-        backgroundColor: Colors.blue[700],
         centerTitle: true,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFF4FACFE), Color(0xFF00C6FF)],
+            ),
+          ),
+        ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
-            Text(
-              tenTP,
-              style: const TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            Image.asset(
-              getImageByWeather(),
-              height: 180,
-              width: 180,
-              fit: BoxFit.cover,
-            ),
-            const SizedBox(height: 10),
-            Text(
-              l10n.todayWithDate(todayFormatted),
-              style: const TextStyle(fontSize: 18, color: Colors.grey),
-            ),
-            Text(
-              nhietDo,
-              style: const TextStyle(
-                fontSize: 40,
-                color: Colors.red,
-                fontWeight: FontWeight.bold,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [Color(0xFFE3F2FD), Colors.white],
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              Text(
+                tenTP,
+                style: const TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            Text(
-              getWeatherText(l10n),
-              style: const TextStyle(fontSize: 22, color: Colors.orange),
-            ),
-            const SizedBox(height: 30),
-            Text(
-              l10n.hourlyForecast,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 12),
-            SizedBox(
-              height: 125,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                itemCount: gio.length,
+              const SizedBox(height: 10),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  getImageByWeather(),
+                  height: 170,
+                  width: 170,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              const SizedBox(height: 12),
+              Text(
+                l10n.todayWithDate(todayFormatted),
+                style: const TextStyle(color: Colors.grey),
+              ),
+              const SizedBox(height: 6),
+              Text(
+                nhietDo,
+                style: const TextStyle(
+                  fontSize: 44,
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Text(
+                getWeatherText(l10n),
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.orange,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              const SizedBox(height: 30),
+
+              Text(
+                l10n.hourlyForecast,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              SizedBox(
+                height: 120,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  itemCount: gio.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      width: 115,
+                      margin: const EdgeInsets.symmetric(horizontal: 6),
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(18),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.blue.withOpacity(0.1),
+                            blurRadius: 10,
+                            offset: const Offset(0, 5),
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            gio[index],
+                            style: const TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          const SizedBox(height: 6),
+                          Icon(iconTheoGio[index], color: Colors.orange),
+                          const SizedBox(height: 6),
+                          Text(nhietDoTheoGio[index]),
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              const SizedBox(height: 30),
+
+              Text(
+                l10n.sevenDayForecast,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 7,
                 itemBuilder: (context, index) {
                   return Container(
-                    width: 90,
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    decoration: BoxDecoration(
-                      color: Colors.blue[50],
-                      borderRadius: BorderRadius.circular(15),
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 15,
+                      vertical: 6,
                     ),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          gio[index],
-                          style: const TextStyle(fontWeight: FontWeight.bold),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(18),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.1),
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
                         ),
-                        const SizedBox(height: 4),
-                        Icon(
-                          iconTheoGio[index],
-                          color: Colors.orange,
-                          size: 28,
-                        ),
-                        const SizedBox(height: 4),
-                        Text(nhietDoTheoGio[index]),
                       ],
+                    ),
+                    child: ListTile(
+                      leading: Icon(icon7Ngay[index], color: Colors.orange),
+                      title: Text(
+                        days7[index],
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      trailing: Text(
+                        nhietDo7Ngay[index],
+                        style: const TextStyle(color: Colors.red, fontSize: 18),
+                      ),
                     ),
                   );
                 },
               ),
-            ),
-            const SizedBox(height: 30),
-            Text(
-              l10n.sevenDayForecast,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: 7,
-              itemBuilder: (context, index) {
-                return Card(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 15,
-                    vertical: 5,
-                  ),
-                  child: ListTile(
-                    leading: Icon(icon7Ngay[index], color: Colors.orange),
-                    title: Text(
-                      days7[index],
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    trailing: Text(
-                      nhietDo7Ngay[index],
-                      style: const TextStyle(color: Colors.red, fontSize: 18),
-                    ),
-                  ),
-                );
-              },
-            ),
-            const SizedBox(height: 30),
-            Text(
-              l10n.todayDetailTitle,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 15),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: GridView.count(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 3,
-                mainAxisSpacing: 12,
-                crossAxisSpacing: 12,
-                children: [
-                  _buildInfoCard(
-                    Icons.wb_sunny_outlined,
-                    l10n.uvIndex,
-                    chiSoUV,
-                    Colors.orange,
-                  ),
-                  _buildInfoCard(
-                    Icons.umbrella_outlined,
-                    l10n.rainAmount,
-                    luongMua,
-                    Colors.blue,
-                  ),
-                  _buildInfoCard(
-                    Icons.remove_red_eye_outlined,
-                    l10n.visibility,
-                    tamNhin,
-                    Colors.green,
-                  ),
-                  _buildInfoCard(
-                    Icons.water_drop_outlined,
-                    l10n.humidity,
-                    doAm,
-                    Colors.cyan,
-                  ),
-                  _buildInfoCard(
-                    Icons.speed,
-                    l10n.pressure,
-                    apSuat,
-                    Colors.purple,
-                  ),
-                  _buildInfoCard(Icons.air, l10n.wind, "12 km/h", Colors.teal),
-                ],
+
+              const SizedBox(height: 30),
+
+              Text(
+                l10n.todayDetailTitle,
+                style: const TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
-            ),
-            const SizedBox(height: 40),
-          ],
+
+              const SizedBox(height: 15),
+
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15),
+                child: GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount: 3,
+                  mainAxisSpacing: 14,
+                  crossAxisSpacing: 14,
+                  children: [
+                    _buildInfoCard(
+                      Icons.wb_sunny_outlined,
+                      l10n.uvIndex,
+                      chiSoUV,
+                      Colors.orange,
+                    ),
+                    _buildInfoCard(
+                      Icons.umbrella_outlined,
+                      l10n.rainAmount,
+                      luongMua,
+                      Colors.blue,
+                    ),
+                    _buildInfoCard(
+                      Icons.remove_red_eye_outlined,
+                      l10n.visibility,
+                      tamNhin,
+                      Colors.green,
+                    ),
+                    _buildInfoCard(
+                      Icons.water_drop_outlined,
+                      l10n.humidity,
+                      doAm,
+                      Colors.cyan,
+                    ),
+                    _buildInfoCard(
+                      Icons.speed,
+                      l10n.pressure,
+                      apSuat,
+                      Colors.purple,
+                    ),
+                    _buildInfoCard(
+                      Icons.air,
+                      l10n.wind,
+                      "12 km/h",
+                      Colors.teal,
+                    ),
+                  ],
+                ),
+              ),
+
+              const SizedBox(height: 40),
+            ],
+          ),
         ),
       ),
     );
