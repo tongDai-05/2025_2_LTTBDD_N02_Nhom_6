@@ -1,6 +1,6 @@
 import 'package:bai_tap_lon_cuoi_ki/Home/home.dart';
 import 'package:bai_tap_lon_cuoi_ki/Settings/Screen_selection.dart';
-import 'package:bai_tap_lon_cuoi_ki/Languages/app_localizations.dart';
+import 'package:bai_tap_lon_cuoi_ki/languages/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -32,6 +32,17 @@ class _MyAppState extends State<MyApp> {
           AppLocalizations.localizationsDelegates,
       supportedLocales:
           AppLocalizations.supportedLocales,
+      theme: ThemeData(
+        useMaterial3: true,
+        scaffoldBackgroundColor: Colors.transparent,
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.dark,
+        ),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 16),
+        ),
+      ),
       home: MainScreen(
         locale: _locale,
         onLocaleChanged: _setLocale,
@@ -77,25 +88,52 @@ class _MainScreenState extends State<MainScreen> {
       ),
     ];
 
-    return Scaffold(
-      body: pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: AppLocalizations.of(
-              context,
-            )!.home,
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Color(0xFF0F2027),
+            Color(0xFF203A43),
+            Color(0xFF2C5364),
+          ],
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+        ),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: pages[_selectedIndex],
+        bottomNavigationBar: Padding(
+          padding: const EdgeInsets.all(12),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: BottomNavigationBar(
+              currentIndex: _selectedIndex,
+              onTap: _onItemTapped,
+              backgroundColor: const Color(0xFF1E2A38),
+              selectedItemColor: Colors.white,
+              unselectedItemColor: Colors.white70,
+              elevation: 10,
+              type: BottomNavigationBarType.fixed,
+              items: [
+                BottomNavigationBarItem(
+                  icon: const Icon(Icons.home_outlined),
+                  activeIcon: const Icon(Icons.home),
+                  label: AppLocalizations.of(
+                    context,
+                  )!.home,
+                ),
+                BottomNavigationBarItem(
+                  icon: const Icon(Icons.settings_outlined),
+                  activeIcon: const Icon(Icons.settings),
+                  label: AppLocalizations.of(
+                    context,
+                  )!.setting,
+                ),
+              ],
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings_outlined),
-            label: AppLocalizations.of(
-              context,
-            )!.setting,
-          ),
-        ],
+        ),
       ),
     );
   }

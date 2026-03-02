@@ -1,4 +1,4 @@
-import 'package:bai_tap_lon_cuoi_ki/Languages/app_localizations.dart';
+import 'package:bai_tap_lon_cuoi_ki/languages/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 void main() {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Languages/app_localizations.dart';
+import '../languages/app_localizations.dart';
 
 enum WeatherCondition { sunny, rainy, cloudy }
 
@@ -64,10 +64,7 @@ class CityWeather {
   });
 }
 
-String conditionLabel(
-  AppLocalizations l10n,
-  WeatherCondition condition,
-) {
+String conditionLabel(AppLocalizations l10n, WeatherCondition condition) {
   switch (condition) {
     case WeatherCondition.sunny:
       return l10n.weatherSunny;
@@ -95,73 +92,28 @@ CityWeather _templateCityWeather({
     condition: condition,
     conditionIcon: icon,
     hourly: const [
-      HourlyForecast(
-        timeLabel: '06:00',
-        tempC: 24,
-        icon: Icons.wb_sunny,
-      ),
-      HourlyForecast(
-        timeLabel: '09:00',
-        tempC: 27,
-        icon: Icons.wb_sunny,
-      ),
-      HourlyForecast(
-        timeLabel: '12:00',
-        tempC: 31,
-        icon: Icons.wb_sunny,
-      ),
-      HourlyForecast(
-        timeLabel: '15:00',
-        tempC: 32,
-        icon: Icons.cloud,
-      ),
-      HourlyForecast(
-        timeLabel: '18:00',
-        tempC: 29,
-        icon: Icons.cloud,
-      ),
-      HourlyForecast(
-        timeLabel: '21:00',
-        tempC: 26,
-        icon: Icons.nights_stay,
-      ),
+      HourlyForecast(timeLabel: '00:00', tempC: 18, icon: Icons.nights_stay),
+      HourlyForecast(timeLabel: '02:00', tempC: 19, icon: Icons.cloud),
+      HourlyForecast(timeLabel: '04:00', tempC: 20, icon: Icons.cloud),
+      HourlyForecast(timeLabel: '06:00', tempC: 24, icon: Icons.cloud),
+      HourlyForecast(timeLabel: '08:00', tempC: 24, icon: Icons.wb_sunny),
+      HourlyForecast(timeLabel: '10:00', tempC: 25, icon: Icons.wb_sunny),
+      HourlyForecast(timeLabel: '12:00', tempC: 27, icon: Icons.wb_sunny),
+      HourlyForecast(timeLabel: '14:00', tempC: 31, icon: Icons.wb_sunny),
+      HourlyForecast(timeLabel: '16:00', tempC: 32, icon: Icons.cloud),
+      HourlyForecast(timeLabel: '18:00', tempC: 29, icon: Icons.cloud),
+      HourlyForecast(timeLabel: '20:00', tempC: 26, icon: Icons.cloud),
+      HourlyForecast(timeLabel: '22:00', tempC: 25, icon: Icons.nights_stay),
+      
     ],
     daily7: const [
-      DailyForecast(
-        dayLabel: 'Mon',
-        tempC: 32,
-        icon: Icons.wb_sunny,
-      ),
-      DailyForecast(
-        dayLabel: 'Tue',
-        tempC: 31,
-        icon: Icons.cloud,
-      ),
-      DailyForecast(
-        dayLabel: 'Wed',
-        tempC: 30,
-        icon: Icons.cloud,
-      ),
-      DailyForecast(
-        dayLabel: 'Thu',
-        tempC: 29,
-        icon: Icons.wb_sunny,
-      ),
-      DailyForecast(
-        dayLabel: 'Fri',
-        tempC: 33,
-        icon: Icons.thunderstorm,
-      ),
-      DailyForecast(
-        dayLabel: 'Sat',
-        tempC: 34,
-        icon: Icons.wb_sunny,
-      ),
-      DailyForecast(
-        dayLabel: 'Sun',
-        tempC: 32,
-        icon: Icons.wb_sunny,
-      ),
+      DailyForecast(dayLabel: 'Mon', tempC: 32, icon: Icons.wb_sunny),
+      DailyForecast(dayLabel: 'Tue', tempC: 31, icon: Icons.cloud),
+      DailyForecast(dayLabel: 'Wed', tempC: 30, icon: Icons.cloud),
+      DailyForecast(dayLabel: 'Thu', tempC: 29, icon: Icons.wb_sunny),
+      DailyForecast(dayLabel: 'Fri', tempC: 33, icon: Icons.thunderstorm),
+      DailyForecast(dayLabel: 'Sat', tempC: 34, icon: Icons.wb_sunny),
+      DailyForecast(dayLabel: 'Sun', tempC: 32, icon: Icons.wb_sunny),
     ],
     metrics: const WeatherMetrics(
       humidityPercent: 68,
@@ -242,9 +194,7 @@ List<CityWeather> buildCityCatalog() {
   ];
 }
 
-CityWeather buildNewCityFromName(
-  String cityName,
-) {
+CityWeather buildNewCityFromName(String cityName) {
   // Fake form: create a new city with default hardcoded data.
   return _templateCityWeather(
     cityName: cityName,

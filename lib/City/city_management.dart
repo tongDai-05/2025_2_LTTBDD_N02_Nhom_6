@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../Languages/app_localizations.dart';
+import '../languages/app_localizations.dart';
 import '../Data/weather_data.dart';
 
 class CityManagementResult {
