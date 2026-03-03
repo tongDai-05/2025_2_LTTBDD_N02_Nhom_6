@@ -14,15 +14,22 @@ class AboutPage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.white,
+        centerTitle: true,
         title: Text(
           l10n.about,
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+          style: const TextStyle(
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFF4A90E2), Color(0xFF64B5F6)],
+            colors: [
+              Color(0xFF4A90E2),
+              Color(0xFF64B5F6),
+            ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -31,7 +38,8 @@ class AboutPage extends StatelessWidget {
           child: SingleChildScrollView(
             padding: const EdgeInsets.all(16),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment:
+                  CrossAxisAlignment.stretch,
               children: [
                 _sectionCard(
                   title: l10n.aboutAppHeadline,
@@ -39,7 +47,8 @@ class AboutPage extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 _sectionCard(
-                  title: l10n.aboutHighlightsTitle,
+                  title:
+                      l10n.aboutHighlightsTitle,
                   content:
                       '${l10n.aboutHighlightHome}\n\n'
                       '${l10n.aboutHighlightForecast}\n\n'
@@ -55,7 +64,8 @@ class AboutPage extends StatelessWidget {
                 const SizedBox(height: 16),
                 _sectionCard(
                   title: l10n.aboutFutureTitle,
-                  content: l10n.aboutFutureBullet1,
+                  content:
+                      l10n.aboutFutureBullet1,
                 ),
               ],
             ),
@@ -65,7 +75,10 @@ class AboutPage extends StatelessWidget {
     );
   }
 
-  Widget _sectionCard({required String title, required String content}) {
+  Widget _sectionCard({
+    required String title,
+    required String content,
+  }) {
     return Container(
       padding: const EdgeInsets.all(18),
       decoration: BoxDecoration(
@@ -80,7 +93,8 @@ class AboutPage extends StatelessWidget {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment:
+            CrossAxisAlignment.start,
         children: [
           Text(
             title,

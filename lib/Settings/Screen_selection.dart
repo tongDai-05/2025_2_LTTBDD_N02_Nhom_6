@@ -28,15 +28,23 @@ class SettingsIndexPage extends StatelessWidget {
         backgroundColor: primaryBlue,
         foregroundColor: Colors.white,
         elevation: 0,
-        centerTitle: true,
+        // centerTitle: true,
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment:
+              MainAxisAlignment.center,
           children: [
-            Image.asset('imgs/icon.png', width: 40, height: 40),
+            Image.asset(
+              'imgs/icon.png',
+              width: 40,
+              height: 40,
+            ),
             const SizedBox(width: 12),
             Text(
               l10n.setting,
-              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
@@ -50,9 +58,12 @@ class SettingsIndexPage extends StatelessWidget {
               icon: Icons.person_outline,
               title: l10n.viewProfile,
               onTap: () {
-                Navigator.of(
-                  context,
-                ).push(MaterialPageRoute(builder: (_) => TrangProfile()));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) =>
+                        TrangProfile(),
+                  ),
+                );
               },
             ),
             _buildCard(
@@ -62,10 +73,13 @@ class SettingsIndexPage extends StatelessWidget {
               onTap: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (_) => LanguaguesPage(
-                      currentLocale: currentLocale,
-                      onLocaleChanged: onLocaleChanged,
-                    ),
+                    builder: (_) =>
+                        LanguaguesPage(
+                          currentLocale:
+                              currentLocale,
+                          onLocaleChanged:
+                              onLocaleChanged,
+                        ),
                   ),
                 );
               },
@@ -75,9 +89,12 @@ class SettingsIndexPage extends StatelessWidget {
               icon: Icons.info_outline,
               title: l10n.about,
               onTap: () {
-                Navigator.of(
-                  context,
-                ).push(MaterialPageRoute(builder: (_) => const AboutPage()));
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) =>
+                        const AboutPage(),
+                  ),
+                );
               },
             ),
           ],
@@ -96,18 +113,28 @@ class SettingsIndexPage extends StatelessWidget {
     const darkBlue = Color(0xFF1B4F72);
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      padding: const EdgeInsets.symmetric(
+        horizontal: 16,
+        vertical: 10,
+      ),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+          padding: const EdgeInsets.symmetric(
+            vertical: 18,
+            horizontal: 16,
+          ),
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(
+              20,
+            ),
             boxShadow: [
               BoxShadow(
-                color: primaryBlue.withOpacity(0.15),
+                color: primaryBlue.withOpacity(
+                  0.15,
+                ),
                 blurRadius: 12,
                 offset: const Offset(0, 6),
               ),
@@ -118,10 +145,16 @@ class SettingsIndexPage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: primaryBlue.withOpacity(0.15),
+                  color: primaryBlue.withOpacity(
+                    0.15,
+                  ),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(icon, size: 28, color: primaryBlue),
+                child: Icon(
+                  icon,
+                  size: 28,
+                  color: primaryBlue,
+                ),
               ),
               const SizedBox(width: 18),
               Expanded(
@@ -134,7 +167,11 @@ class SettingsIndexPage extends StatelessWidget {
                   ),
                 ),
               ),
-              const Icon(Icons.arrow_forward_ios, size: 18, color: primaryBlue),
+              const Icon(
+                Icons.arrow_forward_ios,
+                size: 18,
+                color: primaryBlue,
+              ),
             ],
           ),
         ),

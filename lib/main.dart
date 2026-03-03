@@ -28,18 +28,26 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       locale: _locale,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates:
+          AppLocalizations.localizationsDelegates,
+      supportedLocales:
+          AppLocalizations.supportedLocales,
       theme: ThemeData(
         useMaterial3: true,
-        scaffoldBackgroundColor: Colors.transparent,
+        scaffoldBackgroundColor:
+            Colors.transparent,
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.blue,
           brightness: Brightness.dark,
         ),
-        textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 16)),
+        textTheme: const TextTheme(
+          bodyMedium: TextStyle(fontSize: 16),
+        ),
       ),
-      home: MainScreen(locale: _locale, onLocaleChanged: _setLocale),
+      home: MainScreen(
+        locale: _locale,
+        onLocaleChanged: _setLocale,
+      ),
     );
   }
 }
@@ -55,7 +63,8 @@ class MainScreen extends StatefulWidget {
   });
 
   @override
-  _MainScreenState createState() => _MainScreenState();
+  _MainScreenState createState() =>
+      _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -83,7 +92,11 @@ class _MainScreenState extends State<MainScreen> {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
+          colors: [
+            Color(0xFF0F2027),
+            Color(0xFF203A43),
+            Color(0xFF2C5364),
+          ],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -94,25 +107,41 @@ class _MainScreenState extends State<MainScreen> {
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.all(12),
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(
+              20,
+            ),
             child: BottomNavigationBar(
               currentIndex: _selectedIndex,
               onTap: _onItemTapped,
-              backgroundColor: const Color(0xFF1E2A38),
+              backgroundColor: const Color(
+                0xFF1E2A38,
+              ),
               selectedItemColor: Colors.white,
               unselectedItemColor: Colors.white70,
               elevation: 10,
               type: BottomNavigationBarType.fixed,
               items: [
                 BottomNavigationBarItem(
-                  icon: const Icon(Icons.home_outlined),
-                  activeIcon: const Icon(Icons.home),
-                  label: AppLocalizations.of(context)!.home,
+                  icon: const Icon(
+                    Icons.home_outlined,
+                  ),
+                  activeIcon: const Icon(
+                    Icons.home,
+                  ),
+                  label: AppLocalizations.of(
+                    context,
+                  )!.home,
                 ),
                 BottomNavigationBarItem(
-                  icon: const Icon(Icons.settings_outlined),
-                  activeIcon: const Icon(Icons.settings),
-                  label: AppLocalizations.of(context)!.setting,
+                  icon: const Icon(
+                    Icons.settings_outlined,
+                  ),
+                  activeIcon: const Icon(
+                    Icons.settings,
+                  ),
+                  label: AppLocalizations.of(
+                    context,
+                  )!.setting,
                 ),
               ],
             ),

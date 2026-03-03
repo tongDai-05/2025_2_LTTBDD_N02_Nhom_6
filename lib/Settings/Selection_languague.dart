@@ -30,8 +30,10 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       locale: _locale,
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates:
+          AppLocalizations.localizationsDelegates,
+      supportedLocales:
+          AppLocalizations.supportedLocales,
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
@@ -48,7 +50,10 @@ class _MyAppState extends State<MyApp> {
           iconColor: textDark,
         ),
       ),
-      home: ManHinhChinh(locale: _locale, onLocaleChanged: _setLocale),
+      home: ManHinhChinh(
+        locale: _locale,
+        onLocaleChanged: _setLocale,
+      ),
     );
   }
 }
@@ -70,32 +75,48 @@ class LanguaguesPage extends StatelessWidget {
     const textDark = Color(0xFF1B4F72);
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: primaryBlue,
         foregroundColor: Colors.white,
         centerTitle: true,
         title: Text(
           l10n.languageTitle,
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: ListView(
         children: [
           ListTile(
-            leading: const Icon(Icons.language, color: textDark),
+            leading: const Icon(
+              Icons.language,
+              color: textDark,
+            ),
             title: Text(
               l10n.languageVietnamese,
               style: TextStyle(
-                color: currentLocale.languageCode == 'vi'
+                color:
+                    currentLocale.languageCode ==
+                        'vi'
                     ? primaryBlue
                     : textDark,
-                fontWeight: currentLocale.languageCode == 'vi'
+                fontWeight:
+                    currentLocale.languageCode ==
+                        'vi'
                     ? FontWeight.bold
                     : FontWeight.normal,
               ),
             ),
-            trailing: currentLocale.languageCode == 'vi'
-                ? const Icon(Icons.check_circle, color: primaryBlue)
+            trailing:
+                currentLocale.languageCode == 'vi'
+                ? const Icon(
+                    Icons.check_circle,
+                    color: primaryBlue,
+                  )
                 : null,
             onTap: () {
               onLocaleChanged(const Locale('vi'));
@@ -104,20 +125,31 @@ class LanguaguesPage extends StatelessWidget {
           ),
           const Divider(height: 1),
           ListTile(
-            leading: const Icon(Icons.language, color: textDark),
+            leading: const Icon(
+              Icons.language,
+              color: textDark,
+            ),
             title: Text(
               l10n.languageEnglish,
               style: TextStyle(
-                color: currentLocale.languageCode == 'en'
+                color:
+                    currentLocale.languageCode ==
+                        'en'
                     ? primaryBlue
                     : textDark,
-                fontWeight: currentLocale.languageCode == 'en'
+                fontWeight:
+                    currentLocale.languageCode ==
+                        'en'
                     ? FontWeight.bold
                     : FontWeight.normal,
               ),
             ),
-            trailing: currentLocale.languageCode == 'en'
-                ? const Icon(Icons.check_circle, color: primaryBlue)
+            trailing:
+                currentLocale.languageCode == 'en'
+                ? const Icon(
+                    Icons.check_circle,
+                    color: primaryBlue,
+                  )
                 : null,
             onTap: () {
               onLocaleChanged(const Locale('en'));
