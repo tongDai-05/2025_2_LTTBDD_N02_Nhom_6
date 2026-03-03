@@ -18,139 +18,126 @@ class SettingsIndexPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
 
+    const primaryBlue = Color(0xFF5DADE2);
+    const darkBlue = Color(0xFF1B4F72);
+    const lightBlue = Color(0xFFEAF4FB);
+
     return Scaffold(
+      backgroundColor: lightBlue,
       appBar: AppBar(
-        backgroundColor: Colors.blue[800],
+        backgroundColor: primaryBlue,
         foregroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
         title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'imgs/icon.png',
-              width: 50,
-              height: 50,
-            ),
-            const SizedBox(width: 30),
+            Image.asset('imgs/icon.png', width: 40, height: 40),
+            const SizedBox(width: 12),
             Text(
               l10n.setting,
-              style: const TextStyle(
-                fontSize: 32,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
             ),
           ],
         ),
       ),
-      body: Column(
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => TrangProfile(),
-                ),
-              );
-            },
-            child: Card(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 8,
-              ),
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(20),
-              ),
-              child: ListTile(
-                leading: const Icon(
-                  Icons.person_outline,
-                  size: 32,
-                  color: Colors.orange,
-                ),
-                title: Text(
-                  l10n.viewProfile,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20),
+        child: Column(
+          children: [
+            _buildCard(
+              context,
+              icon: Icons.person_outline,
+              title: l10n.viewProfile,
+              onTap: () {
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (_) => TrangProfile()));
+              },
             ),
-          ),
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) => LanguaguesPage(
-                    currentLocale: currentLocale,
-                    onLocaleChanged:
-                        onLocaleChanged,
+            _buildCard(
+              context,
+              icon: Icons.language_outlined,
+              title: l10n.settinglag,
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (_) => LanguaguesPage(
+                      currentLocale: currentLocale,
+                      onLocaleChanged: onLocaleChanged,
+                    ),
                   ),
-                ),
-              );
-            },
-            child: Card(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 8,
-              ),
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(20),
-              ),
-              child: ListTile(
-                leading: const Icon(
-                  Icons.language_outlined,
-                  size: 32,
-                  color: Colors.orange,
-                ),
-                title: Text(
-                  l10n.settinglag,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
+                );
+              },
             ),
+            _buildCard(
+              context,
+              icon: Icons.info_outline,
+              title: l10n.about,
+              onTap: () {
+                Navigator.of(
+                  context,
+                ).push(MaterialPageRoute(builder: (_) => const AboutPage()));
+              },
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildCard(
+    BuildContext context, {
+    required IconData icon,
+    required String title,
+    required VoidCallback onTap,
+  }) {
+    const primaryBlue = Color(0xFF5DADE2);
+    const darkBlue = Color(0xFF1B4F72);
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: primaryBlue.withOpacity(0.15),
+                blurRadius: 12,
+                offset: const Offset(0, 6),
+              ),
+            ],
           ),
-          GestureDetector(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) =>
-                      const AboutPage(),
+          child: Row(
+            children: [
+              Container(
+                padding: const EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: primaryBlue.withOpacity(0.15),
+                  shape: BoxShape.circle,
                 ),
-              );
-            },
-            child: Card(
-              margin: const EdgeInsets.symmetric(
-                horizontal: 12,
-                vertical: 8,
+                child: Icon(icon, size: 28, color: primaryBlue),
               ),
-              elevation: 4,
-              shape: RoundedRectangleBorder(
-                borderRadius:
-                    BorderRadius.circular(20),
-              ),
-              child: ListTile(
-                leading: const Icon(
-                  Icons.info_outline,
-                  size: 32,
-                  color: Colors.orange,
-                ),
-                title: Text(
-                  l10n.about,
+              const SizedBox(width: 18),
+              Expanded(
+                child: Text(
+                  title,
                   style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                    color: darkBlue,
                   ),
                 ),
               ),
-            ),
+              const Icon(Icons.arrow_forward_ios, size: 18, color: primaryBlue),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

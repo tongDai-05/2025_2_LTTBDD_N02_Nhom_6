@@ -28,10 +28,8 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       locale: _locale,
-      localizationsDelegates:
-          AppLocalizations.localizationsDelegates,
-      supportedLocales:
-          AppLocalizations.supportedLocales,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
       theme: ThemeData(
         useMaterial3: true,
         scaffoldBackgroundColor: Colors.transparent,
@@ -39,14 +37,9 @@ class _MyAppState extends State<MyApp> {
           seedColor: Colors.blue,
           brightness: Brightness.dark,
         ),
-        textTheme: const TextTheme(
-          bodyMedium: TextStyle(fontSize: 16),
-        ),
+        textTheme: const TextTheme(bodyMedium: TextStyle(fontSize: 16)),
       ),
-      home: MainScreen(
-        locale: _locale,
-        onLocaleChanged: _setLocale,
-      ),
+      home: MainScreen(locale: _locale, onLocaleChanged: _setLocale),
     );
   }
 }
@@ -62,8 +55,7 @@ class MainScreen extends StatefulWidget {
   });
 
   @override
-  _MainScreenState createState() =>
-      _MainScreenState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -91,11 +83,7 @@ class _MainScreenState extends State<MainScreen> {
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Color(0xFF0F2027),
-            Color(0xFF203A43),
-            Color(0xFF2C5364),
-          ],
+          colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
         ),
@@ -119,16 +107,12 @@ class _MainScreenState extends State<MainScreen> {
                 BottomNavigationBarItem(
                   icon: const Icon(Icons.home_outlined),
                   activeIcon: const Icon(Icons.home),
-                  label: AppLocalizations.of(
-                    context,
-                  )!.home,
+                  label: AppLocalizations.of(context)!.home,
                 ),
                 BottomNavigationBarItem(
                   icon: const Icon(Icons.settings_outlined),
                   activeIcon: const Icon(Icons.settings),
-                  label: AppLocalizations.of(
-                    context,
-                  )!.setting,
+                  label: AppLocalizations.of(context)!.setting,
                 ),
               ],
             ),

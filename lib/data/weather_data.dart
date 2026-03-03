@@ -104,7 +104,6 @@ CityWeather _templateCityWeather({
       HourlyForecast(timeLabel: '18:00', tempC: 29, icon: Icons.cloud),
       HourlyForecast(timeLabel: '20:00', tempC: 26, icon: Icons.cloud),
       HourlyForecast(timeLabel: '22:00', tempC: 25, icon: Icons.nights_stay),
-      
     ],
     daily7: const [
       DailyForecast(dayLabel: 'Mon', tempC: 32, icon: Icons.wb_sunny),

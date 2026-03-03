@@ -50,9 +50,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
   void _openWeatherDetail(CityWeather city) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (_) => ChiTietThoiTiet(city: city),
-      ),
+      MaterialPageRoute(builder: (_) => ChiTietThoiTiet(city: city)),
     );
   }
 
@@ -68,11 +66,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
         elevation: 0,
         title: Row(
           children: [
-            Image.asset(
-              'imgs/icon.png',
-              width: 40,
-              height: 40,
-            ),
+            Image.asset('imgs/icon.png', width: 40, height: 40),
             const SizedBox(width: 16),
             Text(
               l10n.appTitle,
@@ -96,10 +90,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFF4A90E2), 
-              Color(0xFF74B9FF), 
-            ],
+            colors: [Color(0xFF4A90E2), Color(0xFF74B9FF)],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -131,8 +122,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                             const SizedBox(width: 20),
                             Expanded(
                               child: Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     city.cityName,
@@ -180,22 +170,18 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                     child: ListView.separated(
                       scrollDirection: Axis.horizontal,
                       itemCount: city.hourly.length,
-                      separatorBuilder: (_, __) =>
-                          const SizedBox(width: 14),
+                      separatorBuilder: (_, __) => const SizedBox(width: 14),
                       itemBuilder: (context, index) {
                         final item = city.hourly[index];
                         return Container(
-                          width: 105,
-                          padding:
-                              const EdgeInsets.symmetric(vertical: 14),
+                          width: 112,
+                          padding: const EdgeInsets.symmetric(vertical: 14),
                           decoration: BoxDecoration(
                             color: Colors.white.withOpacity(0.18),
-                            borderRadius:
-                                BorderRadius.circular(18),
+                            borderRadius: BorderRadius.circular(18),
                           ),
                           child: Column(
-                            mainAxisAlignment:
-                                MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
                                 item.timeLabel,
@@ -205,11 +191,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                                 ),
                               ),
                               const SizedBox(height: 10),
-                              Icon(
-                                item.icon,
-                                color: Colors.white,
-                                size: 30,
-                              ),
+                              Icon(item.icon, color: Colors.white, size: 30),
                               const SizedBox(height: 10),
                               Text(
                                 '${item.tempC}°C',
@@ -236,30 +218,23 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                   const SizedBox(height: 14),
                   ListView.builder(
                     shrinkWrap: true,
-                    physics:
-                        const NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: city.daily7.length,
                     itemBuilder: (context, index) {
                       final item = city.daily7[index];
                       final dayLabel = intl.DateFormat.E(
-                              l10n.localeName)
-                          .format(DateTime.now()
-                              .add(Duration(days: index)));
+                        l10n.localeName,
+                      ).format(DateTime.now().add(Duration(days: index)));
 
                       return Card(
                         color: Colors.white.withOpacity(0.18),
-                        margin:
-                            const EdgeInsets.symmetric(vertical: 6),
+                        margin: const EdgeInsets.symmetric(vertical: 6),
                         elevation: 4,
                         shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(18),
+                          borderRadius: BorderRadius.circular(18),
                         ),
                         child: ListTile(
-                          leading: Icon(
-                            item.icon,
-                            color: Colors.white,
-                          ),
+                          leading: Icon(item.icon, color: Colors.white),
                           title: Text(
                             dayLabel,
                             style: const TextStyle(
@@ -269,9 +244,7 @@ class _ManHinhChinhState extends State<ManHinhChinh> {
                           ),
                           trailing: Text(
                             '${item.tempC}°C',
-                            style: const TextStyle(
-                              color: Colors.white,
-                            ),
+                            style: const TextStyle(color: Colors.white),
                           ),
                         ),
                       );
